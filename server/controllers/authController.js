@@ -22,6 +22,7 @@ module.exports = {
     },
 
     login: async(req, res) => {
+        console.log(req.body);
         const {email, password} = req.body,
               db = req.app.get('db'),
               {session} = req;
@@ -34,6 +35,7 @@ module.exports = {
         if(!authorized){
             return res.status(401).send('Incorrect Password')
         }
+        console.log(user)
         delete user[0].password;
         session.user = user[0];
         res.status(202).send(session.user);

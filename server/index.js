@@ -25,7 +25,7 @@ app.post('/auth/logout', authCtrl.logout);
 app.get('/auth/user', authCtrl.getUser); 
 
 //campground endpoints
-app.get('/api/campground', cgCtrl.getCampgrounds);
+app.get('/api/campgrounds', cgCtrl.getCampgrounds);
 app.get('/api/campground/:id', cgCtrl.getCampground);
 app.get('/api/campground-search/:id', cgCtrl.searchCampgrounds);
 

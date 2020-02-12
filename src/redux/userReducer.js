@@ -1,9 +1,5 @@
 const initialState = {
-    user: {
-        id: 0,
-        username: '',
-        profile_pic: ''
-    }
+    user: {}
 }
 
 const GET_USER = 'GET_USER'

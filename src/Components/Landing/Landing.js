@@ -1,11 +1,19 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
-class Landing extends Component{
-    render(){
+const Landing = props => {
+
+    const [campgrounds, setCampgrounds] = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/campgrounds').then(res => {
+            setCampgrounds
+        })
+      }, [])
+
         return(
             <div>Landing</div>
         )
-    }
 }
 
 export default Landing

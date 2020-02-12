@@ -12,8 +12,12 @@ const AuthModal = props => {
     const toggleLogin = () => setLoginToggle(!loginToggle);
 
     const login = () => {
-        axios.post('/auth/login', {username: usernameInput, email: emailInput, password: passInput})
-        .then(res => props.getUser(res.data))
+        axios.post('/auth/login', {email: emailInput, password: passInput})
+        .then(res => {
+            console.log(res.data)
+            props.getUser(res.data)
+            props.toggleFn()
+        })
         .catch(err => alert(err.response.request.response))
     }
 
@@ -25,7 +29,7 @@ const AuthModal = props => {
 
     return (
         <div className='auth-modal'>
-            <button className="modal-close-btn" onClick={props.close}>x</button>
+            <button className="modal-close-btn" onClick={props.toggleFn}>x</button>
             {loginToggle ? (
                 <div id='login-form'>
                     <h1>Sign In</h1>
@@ -38,7 +42,7 @@ const AuthModal = props => {
                         value={passInput}
                         placeholder='Password'
                         onChange={(e) => setPassInput(e.target.value)} />
-                    <button onClick={login}>Login</button>
+                    <button onClick={login} >Login</button>
                     <p onClick={toggleLogin}>Don't have an account? Click here to create one.</p>
                 </div>
             ) : (
@@ -57,7 +61,7 @@ const AuthModal = props => {
                         value={passInput}
                         placeholder='Password'
                         onChange={(e) => setPassInput(e.target.value)} />
-                    <button onClick={login}>Login</button>
+                    <button onClick={register}>Register</button>
                     <p onClick={toggleLogin}>Already have an account? Click here to login.</p>  
                 </div> 
             )}
