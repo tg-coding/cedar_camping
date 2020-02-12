@@ -1,64 +1,128 @@
-insert into campsites (
-    campsite_name,
-    campground_name,
-    park_name,
-    campsite_latitude,
-    campsite_longitude,
-    campsite_short_description,
-    campsite_long_description,
-    campsite_price
-) values (
-    1,
-    'Timpooneke Campground',
-    'Uinta-Wasatch-Cache National Forest',
-    '40.432181',
-    '-111.643475',
-    'Timpooneke Campground is located in a mountainous area next to the Mt. Timpanogos Wilderness.',
-    'Aspen, spruces and fir trees are the dominant tree species. Hiking, horseback riding, and wildlife viewing are popular activities in this area. Site amenities include firewood, grills and picnic tables.
-    There is no water available at the campground',
-    99.99
-);
+-- **********   DUMMY DATA   **********
 
-select * from campsites;
+-- insert into campgrounds (
+-- campground_name,
+-- park_name,
+-- campground_img,
+-- campground_img_credit,
+-- campground_latitude,
+-- campground_longitude,
+-- campground_description
+-- ) values (
+-- 'Zions Campground',
+-- 'Zions National Park',
+-- 'https://www.outsideonline.com/sites/default/files/styles/width_1200/public/2019/12/11/zion-national-park_h.jpg?itok=FosQHFZ6',
+-- 'Image Credit Here',
+-- 'Latitude Here',
+-- 'Longitude Here',
+-- 'Campground Description Here'
+-- ),
+--  (
+-- 'Zions Campground2',
+-- 'Zions National Park2',
+-- 'https://www.outsideonline.com/sites/default/files/styles/img_850-width_flex-height/public/2019/12/18/narrow-zion-np_h.jpg?itok=kzIhKXlc',
+-- 'Image Credit Here2',
+-- 'Latitude Here2',
+-- 'Longitude Here2',
+-- 'Campground Description Here2'
+-- );
 
-insert into campsite_attributes (
-    campsite_id,
-    water,
-    toilets,
-    showers,
-    campfire_allowed,
-    grill,
-    parking,
-    site_length,
-    site_width,
-    water_hookups,
-    sewer_hookups,
-    electric_hookups
-) values (
-    1,
-    'No',
-    'Yes',
-    'No',
-    'No',
-    'No',
-    'No',
-    '12ft',
-    '10ft',
-    'No',
-    'No',
-    'No'
-);
+-- select * from campgrounds;
 
-select * from campsite_attributes;
+-- insert into campsites (
+-- campsite_name,
+-- campground_name,
+-- park_name,
+-- campsite_primary_img_url,
+-- campsite_type,
+-- campsite_price,
+-- campground_id
+-- ) values (
+-- 'Campsite Name Here',
+-- 'Zions Campground',
+-- 'Zions National Park',
+-- 'https://www.outsideonline.com/sites/default/files/styles/img_850-width_flex-height/public/2019/12/11/zion-road-carlight_h.jpg?itok=YJqnaxJs',
+-- 'Campsite Type Here',
+-- 9.99,
+-- 1
+-- ),
+-- (
+-- 'Campsite Name Here2',
+-- 'Zions Campground2',
+-- 'Zions National Park2',
+-- 'https://www.outsideonline.com/sites/default/files/styles/img_850-width_flex-height/public/2019/12/11/zion-narrows-virgins_h.jpg?itok=QJGh4lvP',
+-- 'Campsite Type Here2',
+-- 12.99,
+-- 2
+-- );
 
-insert into campsite_media (
-    campsite_id,
-    img_url,
-    img_credit
-) values (
-    1,
-    'https://www.google.com/maps/uv?hl=en&pb=!1s0x874d888a58a9b12b%3A0x4bff8433c1ac8fac!3m1!7e115!4shttps%3A%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipOJ76n_FH5qJaeJN6VrQJexU0uNIqCdPB5RvCo0%3Dw260-h175-n-k-no!5samerican%20fork%20canyon%20campgrounds%20-%20Google%20Search!15sCAQ&imagekey=!1e10!2sAF1QipOJ76n_FH5qJaeJN6VrQJexU0uNIqCdPB5RvCo0#',
-    'Craig'
-);
+-- select * from campsites;
 
-select * from campsite_media
+
+-- insert into campsite_attributes (
+-- campsite_id,
+-- campsite_latitude,
+-- campsite_longitude,
+-- water,
+-- toilets,
+-- showers,
+-- campfire_allowed,
+-- grill,
+-- parking,
+-- site_length,
+-- site_width,
+-- water_hookups,
+-- sewer_hookups,
+-- electric_hookups
+-- ) values (
+-- 1,
+-- 'campsite_latitude',
+-- 'campsite_longitude',
+-- 'water',
+-- 'toilets',
+-- 'showers',
+-- 'campfire_allowed',
+-- 'grill',
+-- 'parking',
+-- 'site_length',
+-- 'site_width',
+-- 'water_hookups',
+-- 'sewer_hookups',
+-- 'electric_hookups'
+-- ),
+-- (
+-- 2,
+-- 'campsite_latitude2',
+-- 'campsite_longitude2',
+-- 'water2',
+-- 'toilets2',
+-- 'showers2',
+-- 'campfire_allowed2',
+-- 'grill2',
+-- 'parking2',
+-- 'site_length2',
+-- 'site_width2',
+-- 'water_hookups2',
+-- 'sewer_hookups2',
+-- 'electric_hookups2'
+-- );
+
+-- select * from campsite_attributes;
+
+
+-- insert into campsite_media (
+-- campsite_id,
+-- campsite_img_url,
+-- campsite_img_credit
+-- ) values (
+-- 1,
+-- 'campsite_img_url',
+-- 'campsite_img_credit'
+-- ),
+-- (
+-- 2,
+-- 'campsite_img_url2',
+-- 'campsite_img_credit2'
+-- );
+
+-- select * from campsite_media;

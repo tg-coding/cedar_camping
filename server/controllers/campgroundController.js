@@ -12,7 +12,7 @@ module.exports = {
         return res.status(200).send(campground)
     },
 
-    searchCampground: async (req, res) => {
+    searchCampgrounds: async (req, res) => {
         const {search} = req.query
         const campground = await req.app.get('db').search.search_campgrounds(search)
         return res.status(200).send(campground)

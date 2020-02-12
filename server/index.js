@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express'),
         massive = require('massive'),
         session = require('express-session'),
-        campCtrl = require('./controllers/campsiteController'),
+        cgCtrl = require('./controllers/campgroundController'),
+        csCtrl = require('./controllers/campsiteController'),
         authCtrl = require('./controllers/authController'),
         cartCtrl = require('./controllers/cartController'),
         {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
@@ -23,10 +24,15 @@ app.post('/auth/register', authCtrl.register);
 app.post('/auth/logout', authCtrl.logout);
 app.get('/auth/user', authCtrl.getUser); 
 
+//campground endpoints
+app.get('/api/campground', cgCtrl.getCampgrounds);
+app.get('/api/campground/:id', cgCtrl.getCampground);
+app.get('/api/campground-search/:id', cgCtrl.searchCampgrounds);
+
 //campsite endpoints
-app.get('/api/campsites', campCtrl.getCampsites);
-app.get('/api/campsite/:id', campCtrl.getCampsite);
-app.get('/api/campsite-search/:id', campCtrl.searchCampsites);
+app.get('/api/campsites', csCtrl.getCampsites);
+app.get('/api/campsite/:id', csCtrl.getCampsite);
+app.get('/api/campsite-search/:id', csCtrl.searchCampsites);
 // app.get('/api/campsites-all', campCtrl.getCampsitesAll);
 
 //cart endpoints
