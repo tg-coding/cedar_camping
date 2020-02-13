@@ -18,7 +18,12 @@ class Header extends Component{
     }
 
 
-    handleToggle = () => {
+    dropdownToggle = () => {
+        this.setState({showDropdown: !this.state.showDropdown})
+    }
+
+
+    modalToggle = () => {
         this.setState({showModal: !this.state.showModal})
     }
 
@@ -34,28 +39,58 @@ class Header extends Component{
         console.log(this.props)
         return(
             <header>
-                <img src='' id='logo' alt='logo'/>
+                <img src='' id='logo' alt='logo' onClick={() => this.props.history.push('/')}/>
+
                 <nav id='desktop-nav'>
-                    <Link to='/'>Home</Link>
-                    <Link to='/campgrounds'>Campgrounds</Link>
+
+                    <Link to='/' className='desktop-nav-link'>Home</Link>
+
+                    <Link to='/campgrounds' className='desktop-nav-link'>Campgrounds</Link>
+
                     {this.props.user.customer_id ? (
-                        <div className='user-info'>
-                            <img id='profile-pic' src={this.props.user.profile_pic} alt={this.props.user.username} />
-                            <p id='username'>{this.props.user.username}</p>
-                            <button onClick={this.logout}>Logout</button>
+                        <div className='desktop-user-info'>
+                            <img id='desktop-profile-pic' src={this.props.user.profile_pic} alt={this.props.user.username} />
+                            <p id='desktop-username'>{this.props.user.username}</p>
+                            <button onClick={this.logout} className='desktop-login-logout-btn'>Logout</button>
                         </div>
                     ) : (
-                        <button onClick={this.handleToggle}>Login</button>
+                        <button onClick={this.modalToggle} className='desktop-login-logout-btn'>Login</button>
                     )}
                     
-                    <FontAwesomeIcon
-                        icon={faShoppingCart}
-                        onClick={() => this.props.history.push('/cart')}
-                    />
+                    <FontAwesomeIcon id='desktop-cart-btn' icon={faShoppingCart} onClick={() => this.props.history.push('/cart')}/>
+                </nav>
+
+                <nav id='mobile-nav'>
+                        <FontAwesomeIcon id='mobile-cart-btn' icon={faShoppingCart} onClick={() => this.props.history.push('/cart')}/>
+                        <button id='mobile-menu-btn' onClick={this.dropdownToggle}>&#9776;</button>
+
+                    {this.state.showDropdown ? (
+
+                        <div id='dropdown-container'>
+                            {this.props.user.customer_id ? (
+                                <div className='dropdown-links'>
+                                    <p id='desktop-username'>Hello {this.props.user.username}!</p>
+                                    <Link to='/' className='mobile-nav-link'>Home</Link>
+                                    <Link to='/campgrounds' className='mobile-nav-link'>Campgrounds</Link>
+                                    <button onClick={this.logout} className='desktop-login-logout-btn'>Logout</button>
+                                </div>
+                            ) : (
+                                <div className='dropdown-links'>
+                                    <button onClick={this.modalToggle} className='desktop-login-logout-btn'>Login</button>
+                                    <Link to='/' className='mobile-nav-link'>Home</Link>
+                                    <Link to='/campgrounds' className='mobile-nav-link'>Campgrounds</Link>
+                                </div>
+                            )}
+                            
+                        </div>
+
+                    ) : (
+                        null
+                    )}
                 </nav> 
 
                 {this.state.showModal ? (
-                    <AuthModal toggleFn={this.handleToggle} reRender={this.reRender}/>
+                    <AuthModal toggleFn={this.modalToggle} reRender={this.reRender}/>
                 ) : (
                     null
                 )}

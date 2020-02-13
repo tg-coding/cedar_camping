@@ -1,11 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Footer extends Component{
-    render(){
+function Footer (){
+
         return(
-            <div>Footer</div>
+            <footer>
+                <img id='footer-logo' src='' alt='Logo' />
+                <p id='data-source'>Data Source: Recreation.gov</p>
+            </footer>
         )
-    }
 }
 
 export default Footer

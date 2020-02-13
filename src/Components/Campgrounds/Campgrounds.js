@@ -1,12 +1,45 @@
 
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
+import {Link, withRouter} from 'react-router-dom';
+import axios from 'axios';
 
-class Campgrounds extends Component{
-    render(){
-        return(
-            <div>Campgrounds</div>
+const Campgrounds = props => {
+
+    const [campgrounds, setCampgrounds] = useState([]);
+    const [searchInput, setSearchInput] = useState('');
+
+    useEffect(() => {
+        axios.get('/api/campgrounds').then(res => {
+            setCampgrounds(res.data)
+        }).catch(err => console.log(err))
+      }, [])
+      
+      console.log(campgrounds)
+
+
+    const mappedCampgrounds = campgrounds.map((campground, i) => {
+        const {campground_id, campground_img, park_name, campground_name} = campground
+        return (
+            <div key={i} className='campground-container' onClick={() => props.history.push(`/campground/${campground_id}`)}>
+                <img id='campground-preview-img' src={campground_img} alt={campground_name} />
+                <p>{park_name}</p>
+                <h3>{campground_name}</h3>
+            </div>
         )
-    }
+    })
+
+
+
+
+    return(
+        <div className='campgrounds-container'>
+            <div className='campgrounds-landing-hero'>
+                Hello
+            </div>
+            <div className='campgrounds-listing'>{mappedCampgrounds}</div>
+        </div>
+    )
+    
 }
 
-export default Campgrounds;
+export default withRouter(Campgrounds);
