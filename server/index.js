@@ -27,7 +27,7 @@ app.get('/auth/user', authCtrl.getUser);
 //campground endpoints
 app.get('/api/campgrounds', cgCtrl.getCampgrounds);
 app.get('/api/campground/:id', cgCtrl.getCampground);
-app.get('/api/campground-search/:id', cgCtrl.searchCampgrounds);
+app.get('/api/campgrounds/:id', cgCtrl.searchCampgrounds);
 
 //campsite endpoints
 app.get('/api/campsites', csCtrl.getCampsites);

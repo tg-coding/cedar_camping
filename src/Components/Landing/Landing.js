@@ -8,11 +8,9 @@ const Landing = props => {
 
     useEffect(() => {
         axios.get('/api/campgrounds').then(res => {
-            console.log(res)
             let list = []
             for(let i =0; i < 2; i++){
-                list.push(res.data[Math.ceil(Math.random()*1)])
-            }console.log(list)
+                list.push(res.data[Math.ceil(Math.random()*1)])}
             setCampgrounds(list)
         }).catch(err => console.log(err))
       }, [])
@@ -28,7 +26,7 @@ const Landing = props => {
        //   const mappedCampgrounds = campgrounds.slice(0, 4).map((campground, i) => {
 
       const mappedCampgrounds = campgrounds.map((campground, i) => {
-          const {campground_id, campground_img, campground_img_credit, park_name, campground_name} = campground
+          const {campground_id, campground_img, park_name, campground_name} = campground
           return (
               <div key={i} className='campground-container' onClick={() => props.history.push(`/campground/${campground_id}`)}>
                   <img id='campground-preview-img' src={campground_img} alt={campground_name} />
