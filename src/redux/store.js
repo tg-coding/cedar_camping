@@ -5,7 +5,7 @@ import cartReducer from './cartReducer'
 
 const rootReducer = combineReducers({
     userReducer,
-    cartReducer
+    cartReducer,
 })
 
 export default createStore(rootReducer, applyMiddleware(promiseMiddleware))

@@ -14,7 +14,6 @@ const AuthModal = props => {
     const login = () => {
         axios.post('/auth/login', {email: emailInput, password: passInput})
         .then(res => {
-            console.log(res.data)
             props.getUser(res.data)
             props.toggleFn()
         })

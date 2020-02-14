@@ -30,10 +30,9 @@ app.get('/api/campground/:id', cgCtrl.getCampground);
 app.get('/api/campgrounds/:id', cgCtrl.searchCampgrounds);
 
 //campsite endpoints
-app.get('/api/campsites', csCtrl.getCampsites);
+app.get('/api/campsites/:id', csCtrl.getCampsites);
 app.get('/api/campsite/:id', csCtrl.getCampsite);
 app.get('/api/campsite-search/:id', csCtrl.searchCampsites);
-// app.get('/api/campsites-all', campCtrl.getCampsitesAll);
 
 //cart endpoints
 app.get('/api/cart/:id', cartCtrl.getCart);

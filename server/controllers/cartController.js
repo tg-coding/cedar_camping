@@ -1,10 +1,10 @@
 module.exports = {
     
     addToCart: (req, res) => {
-        const {customer_order_id, campsite_id, start_date, duration, price} = req.body,
+        const {customer_order_id, campsite_id, start_date, duration, campsite_price} = req.body,
               db = req.app.get('db');
 
-        db.cart.add_to_cart({customer_order_id, campsite_id, start_date, duration, price})
+        db.cart.add_to_cart({customer_order_id, campsite_id, start_date, duration, campsite_price})
         .then(data => res.status(200).send('Added to cart'))
         .catch(err => res.status(500).send(err));
     },

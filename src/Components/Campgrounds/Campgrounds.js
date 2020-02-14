@@ -1,26 +1,20 @@
 
 import React, {useState, useEffect} from 'react';
-import {Link, withRouter} from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 
 const Campgrounds = props => {
 
     const [campgrounds, setCampgrounds] = useState([]);
     const [searchInput, setSearchInput] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
+    // const [searchResults, setSearchResults] = useState([]);
 
-    // useEffect(() => {
-    //     axios.get('/api/campgrounds').then(res => {
-    //         setCampgrounds(res.data)
-    //     }).catch(err => console.log(err))
-    // }, [])
 
     useEffect(() => {
-        // const {campground_id} = campgrounds.campground
         axios.get(`/api/campgrounds/${campgrounds.campground_id}?search=${searchInput}`)
-            .then(res => {setCampgrounds(res.data)})
+            .then(res => {
+                setCampgrounds(res.data)
+            })
             .catch(err => console.log(err))
     }, [searchInput])
 
@@ -31,6 +25,7 @@ const Campgrounds = props => {
 
     const mappedCampgrounds = campgrounds.map((campground, i) => {
         const {campground_id, campground_img, park_name, campground_name} = campground
+        console.log(campground_id)
         return (
             <div key={i} className='campground-container' onClick={() => props.history.push(`/campground/${campground_id}`)}>
                 <img id='campground-preview-img' src={campground_img} alt={campground_name} />
@@ -45,7 +40,7 @@ const Campgrounds = props => {
         <div className='campgrounds-container'>
             
             <div className='campgrounds-landing-hero'>
-                <h1>Tagline</h1>
+                <h2>Tagline</h2>
                 <input 
                     className='search-input'
                     value={searchInput}
@@ -58,5 +53,6 @@ const Campgrounds = props => {
     )
     
 }
+
 
 export default withRouter(Campgrounds);

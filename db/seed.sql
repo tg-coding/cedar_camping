@@ -65,7 +65,11 @@ create table campsite_media (
 campsite_media_id serial primary key,
 campsite_id int references campsites(campsite_id),
 campsite_img_url varchar(1100),
-campsite_img_credit varchar(200)
+campsite_img_credit varchar(200),
+campsite_img_url_2 varchar(1100),
+campsite_img_credit_2 varchar(200),
+campsite_img_url_3 varchar(1100),
+campsite_img_credit_3 varchar(200)
 );
 
 -- create table campsites(

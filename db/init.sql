@@ -113,16 +113,29 @@
 -- insert into campsite_media (
 -- campsite_id,
 -- campsite_img_url,
--- campsite_img_credit
+-- campsite_img_credit,
+-- campsite_img_url_2,
+-- campsite_img_credit_2,
+-- campsite_img_url_3,
+-- campsite_img_credit_3
 -- ) values (
 -- 1,
--- 'campsite_img_url',
--- 'campsite_img_credit'
+-- 'https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-01/HERO%201_%20Bryce_Canyon_GettyImages-587434801_crop.jpg?itok=ySghuEAJ',
+-- 'campsite_img_credit-1',
+-- 'https://www.myutahparks.com/.image/t_share/MTQ4MzM1NjgyNTMwNTE4Nzcy/bryce-amphitheater-inspiration-point_dp_680.jpg',
+-- 'campsite_img_credit-2',
+-- 'https://www.nps.gov/brca/planyourvisit/images/20171121-IMG_5142.jpg?maxwidth=1200&maxheight=1200&autorotate=false',
+-- 'campsite_img_credit-3'
 -- ),
 -- (
 -- 2,
--- 'campsite_img_url2',
--- 'campsite_img_credit2'
+-- 'https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-01/HERO%201_%20Bryce_Canyon_GettyImages-587434801_crop.jpg?itok=ySghuEAJ',
+-- 'campsite_img_credit-1',
+-- 'https://www.myutahparks.com/.image/t_share/MTQ4MzM1NjgyNTMwNTE4Nzcy/bryce-amphitheater-inspiration-point_dp_680.jpg',
+-- 'campsite_img_credit-2',
+-- 'https://www.nps.gov/brca/planyourvisit/images/20171121-IMG_5142.jpg?maxwidth=1200&maxheight=1200&autorotate=false',
+-- 'campsite_img_credit-3'
 -- );
 
 -- select * from campsite_media;
+
