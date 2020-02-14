@@ -16,7 +16,7 @@ const Campgrounds = props => {
                 setCampgrounds(res.data)
             })
             .catch(err => console.log(err))
-    }, [searchInput])
+    }, [searchInput, campgrounds.campground_id])
 
 
 

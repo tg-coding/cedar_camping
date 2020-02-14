@@ -20,18 +20,18 @@ const Campground = props => {
 
 
     useEffect(() => {
-        console.log(props.match)
         axios.get(`/api/campsites/${props.match.params.id}`)
             .then(res => {
                 setCampsites(res.data)
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [props.match])
 
-    const campgroundHero = campsites.map((campsite) => {
+    
+    const campgroundHero = campsites.map((campsite, i) => {
         const {campground_name, park_name, campground_img, campground_img_credit, campground_latitude, campground_longitude, campground_description} = campsite
         return(
-            <div id='campground-preview-img' style={{backgroundImage: `url(${campground_img})`}}>
+            <div key={i} id='campground-preview-img' style={{backgroundImage: `url(${campground_img})`}}>
                 <h5>{park_name}</h5>
                 <h2>{campground_name}</h2>
                 <h6>Latitude: {campground_latitude}&emsp;Longitude:{campground_longitude}</h6>

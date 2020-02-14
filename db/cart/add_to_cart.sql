@@ -5,7 +5,7 @@ insert into order_items (
     duration,
     price
 ) values (
-    ${order_id},
+    ${customer_order_id},
     ${campsite_id},
     ${start_date},
     ${duration},

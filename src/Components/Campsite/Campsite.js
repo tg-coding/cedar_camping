@@ -12,20 +12,19 @@ const Campsite = props => {
     const [durationInput, setDurationInput] = useState('');
 
     useEffect(() => {
-        console.log(props.match)
         axios.get(`/api/campsite/${props.match.params.id}`)
             .then(res => {
                 setCampsite(res.data)
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [props.match.params.id])
 
 
-    const addToCart = (id, startDateInput, durationInput, campsite_price) => {
+    const addToCart = (campsite_id, startDateInput, durationInput, campsite_price) => {
         if(props.user.email){
             axios.post('/api/cart', {
                 customer_order_id: props.user.customer_order_id,
-                campsite_id: id,
+                campsite_id,
                 start_date: startDateInput,
                 duration: durationInput,
                 campsite_price
@@ -78,12 +77,12 @@ const Campsite = props => {
                     <div className='carousel-container' style ={styles}>
                         <Carousel>
                             <div>
-                                <img src={campsite_primary_img_url} />
+                                <img src={campsite_primary_img_url} alt={campsite_name} />
                                 {/* <p className='legend'>{null}</p> */}
                             </div>
                             {campsite_img_url ? (
                                 <div>
-                                    <img src={campsite_img_url} />
+                                    <img src={campsite_img_url} alt={campsite_name}/>
                                     <p className='legend'>{campsite_img_credit}</p>
                                 </div>
                             ) : (
@@ -91,7 +90,7 @@ const Campsite = props => {
                             )}
                             {campsite_img_url_2 ? (
                                 <div>
-                                    <img src={campsite_img_url_2} />
+                                    <img src={campsite_img_url_2} alt={campsite_name}/>
                                     <p className='legend'>{campsite_img_credit_2}</p>
                                 </div>
                             ) : (
@@ -99,7 +98,7 @@ const Campsite = props => {
                             )}
                             {campsite_img_url_3 ? (
                                 <div>
-                                    <img src={campsite_img_url_3} />
+                                    <img src={campsite_img_url_3} alt={campsite_name}/>
                                     <p className='legend'>{campsite_img_credit_3}</p>
                                 </div>
                             ) : (
@@ -120,8 +119,8 @@ const Campsite = props => {
                                     <input
                                         className='date-input'
                                         value={startDateInput}
-                                        // placeholder='YYYY-MM-DD'
-                                        type='date'
+                                        placeholder='YYYY-MM-DD'
+                                        // type='date'
                                         onChange={(e) => setStartDateInput(e.target.value)}
                                     />
                                 </div>
@@ -134,7 +133,7 @@ const Campsite = props => {
                                         onChange={(e) => setDurationInput(e.target.value)}
                                     />
                                 </div>
-                                <button onClick={addToCart(campsite_id, startDateInput, durationInput, campsite_price)}>Add to Cart</button>
+                                <button onClick={() => addToCart(campsite_id, startDateInput, durationInput, campsite_price)}>Add to Cart</button>
                             </div>
                             <div className='attributes-container'>
                                 <div className='attributes-row'>
