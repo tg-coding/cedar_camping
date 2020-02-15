@@ -120,7 +120,7 @@ const Campsite = props => {
                                         className='date-input'
                                         value={startDateInput}
                                         placeholder='YYYY-MM-DD'
-                                        // type='date'
+                                        type='date'
                                         onChange={(e) => setStartDateInput(e.target.value)}
                                     />
                                 </div>

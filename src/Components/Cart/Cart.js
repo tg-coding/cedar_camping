@@ -5,16 +5,42 @@ import axios from 'axios';
 
 const Cart = props => {
     const [cart, setCart] = useState([])
+    const [startDateInput, setStartDateInput] = useState('');
+    const [durationInput, setDurationInput] = useState('');
+    const [editing, setEditing] = useState(false)
+
 
     useEffect(() => {
+        console.log(props)
         axios.get(`/api/cart/${props.user.customer_order_id}`)
         .then(res => setCart(res.data))
         .catch(err => console.log(err))
     }, [props.user.customer_order_id])
 
-    console.log(cart)
+    // need to rerender after edit
 
-    const delete =
+    const remove = (id) => {
+        axios.delete(`/api/cart/${id}`)
+        .then(res => {
+            setCart(res.data)
+        })
+        .catch(err => console.log(err))
+    }
+
+    const edit = () => {
+        setEditing(true)
+    }
+
+    const submitEdit = (order_item, start_date, duration) => {
+        axios.put(`/api/cart/${order_item}`, {start_date, duration})
+        .then(() => {
+            setEditing(false)
+    })
+        // .then(res=> {
+        //     setCart(res.data)
+        // })
+        .catch(err => console.log(err))
+    }
 
     // const mappedCart = cart.map((campsite, i) => {
     //     console.log(campsite)
@@ -38,9 +64,10 @@ const Cart = props => {
                         <p className='cart-header-row-item'>Total</p>
                     </div>
                     {cart && cart.map((cart, campsite_id) => {
-                        const {campsite_primary_img_url, park_name, campground_name, campsite_name, start_date, duration, campsite_price} = cart
+                        const {campsite_primary_img_url, park_name, campground_name, campsite_name, start_date, duration, campsite_price, order_item} = cart
                         // const start_date = start_date.toLocaleDateString
                         console.log(cart)
+                        console.log('start-date', startDateInput)
                         return(
                             <div key={campsite_id} className='cart-container'>
                                 <img src={campsite_primary_img_url} alt={campsite_name} />
@@ -49,12 +76,34 @@ const Cart = props => {
                                     <h2>{campground_name}</h2>
                                     <p>{campsite_name}</p>
                                 </div>
-                                <h3>
-                                    {start_date.slice(0,10)}
-                                </h3>
-                                <h3>{duration}</h3>
+                                 {editing ? (
+                                    <div>
+                                        <input
+                                        name='start-date-input'
+                                        className='date-input'
+                                        value={startDateInput}
+                                        placeholder={start_date.slice(0,10)}
+                                        type='date'
+                                        onChange={(e) => setStartDateInput(e.target.value)}
+                                    />
+                                        <input
+                                            className='duration-input'
+                                            value={durationInput}
+                                            placeholder={duration}
+                                            type='number'
+                                            onChange={(e) => setDurationInput(e.target.value)}
+                                        />
+                                        <button onClick={() => submitEdit(order_item, startDateInput, durationInput)}>Submit</button>
+                                    </div>
+                                 ) : (
+                                    <div>
+                                        <h3>{start_date.slice(0,10)}</h3>
+                                        <h3>{duration}</h3>
+                                        <button onClick={edit}>Edit</button>
+                                    </div>
+                                 )}
                                 <h2>{duration * campsite_price}</h2>
-                                <button className='remove-btn'>x</button>
+                                <button className='remove-btn' onClick={() => remove(order_item)}>x</button>
                             </div>
                         )
                     })}

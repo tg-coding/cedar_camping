@@ -1,2 +1,2 @@
 delete from order_items
-where id = $1;
+where order_item = $1;

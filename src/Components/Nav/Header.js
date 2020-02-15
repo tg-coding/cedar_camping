@@ -36,7 +36,6 @@ class Header extends Component{
 
 
     render(){
-        console.log(this.props)
         return(
             <header>
                 <img src='' id='logo' alt='logo' onClick={() => this.props.history.push('/')}/>
@@ -100,7 +99,6 @@ class Header extends Component{
 }
 
 function mapStateToProps(state) {
-    console.log(state.userReducer)
     return {user: state.userReducer.user}
 }
 
