@@ -12,12 +12,16 @@ const Cart = props => {
 
     useEffect(() => {
         console.log(props)
+        rerender();
+    }, [props.user.customer_order_id])
+
+
+    const rerender = () => {
         axios.get(`/api/cart/${props.user.customer_order_id}`)
         .then(res => setCart(res.data))
         .catch(err => console.log(err))
-    }, [props.user.customer_order_id])
+    }
 
-    // need to rerender after edit
 
     const remove = (id) => {
         axios.delete(`/api/cart/${id}`)
@@ -27,15 +31,21 @@ const Cart = props => {
         .catch(err => console.log(err))
     }
 
+
     const edit = () => {
         setEditing(true)
     }
 
+    
+
     const submitEdit = (order_item, start_date, duration) => {
         axios.put(`/api/cart/${order_item}`, {start_date, duration})
         .then(() => {
+            rerender()
+        })
+        .then(() => {
             setEditing(false)
-    })
+        })
         // .then(res=> {
         //     setCart(res.data)
         // })
