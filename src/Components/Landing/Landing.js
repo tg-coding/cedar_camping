@@ -9,8 +9,8 @@ const Landing = props => {
     useEffect(() => {
         axios.get('/api/campgrounds').then(res => {
             let list = []
-            for(let i =0; i < 2; i++){
-                list.push(res.data[Math.ceil(Math.random()*1)])}
+            for(let i =0; i < 4; i++){
+                list.push(res.data[Math.ceil(Math.random()*15)])}
             setCampgrounds(list)
         }).catch(err => console.log(err))
       }, [])
@@ -46,8 +46,8 @@ const Landing = props => {
             
 
             <div id='hero'>
-                <h1>Ready to go camping?</h1>
-                <button>Find the perfect place</button>
+                <h1>The outdoors are calling</h1>
+                <button>find the perfect place to camp</button>
             </div>
 
             <div className='featured-container'>

@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import StripeCheckout from 'react-stripe-checkout';
+import stripe from '../../stripeKey';
 
 const Cart = props => {
     const [cart, setCart] = useState([])
@@ -22,6 +24,14 @@ const Cart = props => {
         .catch(err => console.log(err))
     }
 
+    const onToken = (token) => {
+        token.card = void 0;
+        console.log('token', token);
+        axios.post('http://localhost:3535/api/payment', { token, amount: (cartTotal * 100).toFixed(2) } )
+        .then(response => {
+          alert('we are in business')
+        });
+      }
 
     const remove = (id) => {
         axios.delete(`/api/cart/${id}`)
@@ -37,9 +47,8 @@ const Cart = props => {
     }
 
     
-
-    const submitEdit = (order_item, start_date, duration) => {
-        axios.put(`/api/cart/${order_item}`, {start_date, duration})
+    const submitEdit = (order_item_id, start_date, duration) => {
+        axios.put(`/api/cart/${order_item_id}`, {start_date, duration})
         .then(() => {
             rerender()
         })
@@ -52,12 +61,9 @@ const Cart = props => {
         .catch(err => console.log(err))
     }
 
-    // const mappedCart = cart.map((campsite, i) => {
-    //     console.log(campsite)
-    //     return(
-    //         <div key={i}></div>
-    //     )
-    // })
+    const cartTotal = cart.reduce((total, current) => {
+        return (total + (current.campsite_price * current.duration)).toFixed(2)
+    }, 0 )
 
     return(
         <div>
@@ -74,8 +80,9 @@ const Cart = props => {
                         <p className='cart-header-row-item'>Total</p>
                     </div>
                     {cart && cart.map((cart, campsite_id) => {
-                        const {campsite_primary_img_url, park_name, campground_name, campsite_name, start_date, duration, campsite_price, order_item} = cart
-                        // const start_date = start_date.toLocaleDateString
+                        const {campsite_primary_img_url, park_name, campground_name, campsite_name, start_date, duration, campsite_price, order_item_id} = cart
+                        const total = duration * campsite_price
+                        
                         console.log(cart)
                         console.log('start-date', startDateInput)
                         return(
@@ -103,7 +110,7 @@ const Cart = props => {
                                             type='number'
                                             onChange={(e) => setDurationInput(e.target.value)}
                                         />
-                                        <button onClick={() => submitEdit(order_item, startDateInput, durationInput)}>Submit</button>
+                                        <button onClick={() => submitEdit(order_item_id, startDateInput, durationInput)}>Submit</button>
                                     </div>
                                  ) : (
                                     <div>
@@ -112,11 +119,26 @@ const Cart = props => {
                                         <button onClick={edit}>Edit</button>
                                     </div>
                                  )}
-                                <h2>{duration * campsite_price}</h2>
-                                <button className='remove-btn' onClick={() => remove(order_item)}>x</button>
+                                <h2>${total.toFixed(2)}</h2>
+                                <button className='remove-btn' onClick={() => remove(order_item_id)}>x</button>
                             </div>
                         )
                     })}
+                    <hr/>
+                    <div className='subtotal-container'>
+                        <p className='subtotal-text'>Subtotal</p>
+                        <h2 className='subtotal-total'>
+                        {cartTotal}
+                        </h2>
+                    </div>
+                    {/* <button className='checkout-btn'>checkout</button> */}
+
+                    <StripeCheckout
+                        token={onToken}
+                        stripeKey={ stripe.pub_key }
+                        amount={(cartTotal * 100).toFixed(2)}
+                    />
+                    
                 </div>
             ) : (
                 <div>

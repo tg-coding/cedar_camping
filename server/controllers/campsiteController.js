@@ -21,8 +21,10 @@ module.exports = {
     // },
 
     getCampsite: async (req, res) => {
+        
         const {id} = req.params
         const campsite = await req.app.get('db').campsites.get_campsite(id)
+        // console.log(campsite)
         return res.status(200).send(campsite)
     },
 

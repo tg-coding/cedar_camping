@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {withRouter} from 'react-router-dom';
+import {Map, GoogleApiWrapper, Marker} from 'google-maps-react';
 import axios from 'axios';
+import googleMap from '../../googleMap';
 
 
 
@@ -28,15 +30,31 @@ const Campground = props => {
     }, [props.match])
 
     
-    const campgroundHero = campsites.map((campsite, i) => {
+    const mapStyles = {
+        width: '100%',
+        height: '300px',
+      };
+    
+    const campgroundHero = campsites.slice(0,1).map((campsite, i) => {
         const {campground_name, park_name, campground_img, campground_img_credit, campground_latitude, campground_longitude, campground_description} = campsite
         return(
-            <div key={i} id='campground-preview-img' style={{backgroundImage: `url(${campground_img})`}}>
-                <h5>{park_name}</h5>
-                <h2>{campground_name}</h2>
-                <h6>Latitude: {campground_latitude}&emsp;Longitude:{campground_longitude}</h6>
-                <p>{campground_description}</p>
-                <p id='campground-preview-img-credit'>Image Credit: {campground_img_credit}</p>
+            <div key={i} >
+                <div id='campground-preview-img' style={{backgroundImage: `url(${campground_img})`}}>
+                    <h5>{park_name}</h5>
+                    <h2>{campground_name}</h2>
+                    <h6>Latitude: {campground_latitude}&emsp;Longitude:{campground_longitude}</h6>
+                    <p>{campground_description}</p>
+                    <p id='campground-preview-img-credit'>Image Credit: {campground_img_credit}</p>
+                </div>
+                <div className='google-map-container'>
+                    <Map
+                        google={props.google}
+                        zoom={8}
+                        style={mapStyles}
+                        initialCenter={{lat: campground_latitude, lng: campground_longitude}} >
+                            <Marker position={{lat: campground_latitude, lng: campground_longitude}} />
+                    </Map>
+                </div>
             </div>
         )
     })
@@ -72,4 +90,6 @@ const Campground = props => {
 }
 
 
-export default withRouter(Campground);
+export default GoogleApiWrapper({
+    apiKey: googleMap.key
+}) (withRouter(Campground));

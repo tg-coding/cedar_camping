@@ -30,11 +30,9 @@ module.exports = {
     },
 
     editCart: (req, res) => {
-        console.log(req.body)
         const {id} = req.params,
               {start_date, duration} = req.body,
                db = req.app.get('db');
-
 
         db.cart.edit_cart(id, start_date, duration)
         .then(() => res.sendStatus(200))

@@ -12,12 +12,13 @@ const Campsite = props => {
     const [durationInput, setDurationInput] = useState('');
 
     useEffect(() => {
+        console.log(props.match.params)
         axios.get(`/api/campsite/${props.match.params.id}`)
             .then(res => {
                 setCampsite(res.data)
             })
             .catch(err => console.log(err))
-    }, [props.match.params.id])
+    }, [])
 
 
     const addToCart = (campsite_id, startDateInput, durationInput, campsite_price) => {
@@ -35,6 +36,7 @@ const Campsite = props => {
             window.alert('Please login or create an account')
         }
     }
+    console.log(campsite)
 
     const mappedCampsite = campsite.map((campsite, i) => {
         const {
@@ -43,21 +45,25 @@ const Campsite = props => {
             campground_name,
             park_name,
             campsite_primary_img_url,
+            campsite_primary_img_credit,
             campsite_type,
             campsite_price,
             campsite_latitude,
             campsite_longitude,
-            water,
-            toilets,
-            showers,
+            checkin_time,
+            checkout_time,
             campfire_allowed,
+            fire_pit,
             grill,
-            parking,
-            site_length,
-            site_width,
-            water_hookups,
-            sewer_hookups,
+            picnic_table,
             electric_hookups,
+            sewer_hookups,
+            pets_allowed,
+            water,
+            showers,
+            toilets,
+            site_width,
+            site_length,
             campsite_img_url,
             campsite_img_credit,
             campsite_img_url_2,
@@ -78,33 +84,34 @@ const Campsite = props => {
                         <Carousel>
                             <div>
                                 <img src={campsite_primary_img_url} alt={campsite_name} />
-                                {/* <p className='legend'>{null}</p> */}
+                                <p className='legend'>{campsite_primary_img_credit}</p>
                             </div>
-                            {campsite_img_url ? (
+                            {null ? (
+                                null
+                            ) : (
                                 <div>
-                                    <img src={campsite_img_url} alt={campsite_name}/>
+                                    <img src={campsite_img_url}/>
                                     <p className='legend'>{campsite_img_credit}</p>
                                 </div>
-                            ) : (
-                                null
                             )}
-                            {campsite_img_url_2 ? (
+                            {null ? (
+                                null
+                            ) : (
                                 <div>
-                                    <img src={campsite_img_url_2} alt={campsite_name}/>
+                                    <img src={campsite_img_url_2}/>
                                     <p className='legend'>{campsite_img_credit_2}</p>
                                 </div>
-                            ) : (
-                                null
                             )}
-                            {campsite_img_url_3 ? (
+                            {null ? (
+                                null
+                            ) : (
                                 <div>
-                                    <img src={campsite_img_url_3} alt={campsite_name}/>
+                                    <img src={campsite_img_url_3}/>
                                     <p className='legend'>{campsite_img_credit_3}</p>
                                 </div>
-                            ) : (
-                                null
                             )}
                         </Carousel>
+
                         <div className='campsite-primary-info'>
                             <h5>{park_name}</h5>
                             <h2>{campground_name}</h2>
@@ -125,7 +132,7 @@ const Campsite = props => {
                                     />
                                 </div>
                                 <div className='input-container'>
-                                    <p className='input-labels'>Days:</p>
+                                    <p className='input-labels'>Days</p>
                                     <input
                                         className='duration-input'
                                         value={durationInput}
@@ -137,25 +144,33 @@ const Campsite = props => {
                             </div>
                             <div className='attributes-container'>
                                 <div className='attributes-row'>
-                                    <div className='coordinate-attribute'>Latitude:<br/>{campsite_latitude}</div>
-                                    <div className='coordinate-attribute'>Longitude:<br/>{campsite_longitude}</div>
+                                    <div className='coordinate-attribute'>Latitude<br/><strong>{campsite_latitude}</strong></div>
+                                    <div className='coordinate-attribute'>Longitude<br/><strong>{campsite_longitude}</strong></div>
                                 </div>
                                 <div className='attributes-row'>
-                                    <div className='attribute'>Water:<br/>{water}</div>
-                                    <div className='attribute'>Toilets:<br/>{toilets}</div>
-                                    <div className='attribute'>Showers:<br/>{showers}</div>
-                                    <div className='attribute'>Campfire Allowed:<br/>{campfire_allowed}</div>
-                                    <div className='attribute'>Site Width:<br/>{site_width}</div>
-                                    <div className='attribute'>Site Length:<br/>{site_length}</div>
+                                    <div className='attribute'>Check-in<br/><strong>{checkin_time}</strong></div>
+                                    <div className='attribute'>Check-out<br/><strong>{checkout_time}</strong></div>
+                                    <div className='attribute'>Campfire Allowed<br/><strong>{campfire_allowed}</strong></div>
+                                    <div className='attribute'>Fire Pit<br/><strong>{fire_pit}</strong></div>
                                 </div>
                                 <div className='attributes-row'>
-                                    <div className='attribute'>Grill:<br/>{grill}</div>
-                                    <div className='attribute'>Parking:<br/>{parking}</div>
-                                    <div className='attribute'>Water Hookups:<br/>{water_hookups}</div>
-                                    <div className='attribute'>Sewer Hookups:<br/>{sewer_hookups}</div>
-                                    <div className='attribute'>Electric Hookups:<br/>{electric_hookups}</div>
+                                    <div className='attribute'>Grill<br/><strong>{grill}</strong></div>
+                                    <div className='attribute'>Picnic Table<br/><strong>{picnic_table}</strong></div>
+                                    <div className='attribute'>Electric Hookups<br/><strong>{electric_hookups}</strong></div>
+                                    <div className='attribute'>Sewer Hookups<br/><strong>{sewer_hookups}</strong></div>
+                                </div>
+                                <div className='attributes-row'>
+                                    <div className='attribute'>Pets Allowed<br/><strong>{pets_allowed}</strong></div>
+                                    <div className='attribute'>Water<br/><strong>{water}</strong></div>
+                                    <div className='attribute'>Showers<br/><strong>{showers}</strong></div>
+                                    <div className='attribute'>Toilets<br/><strong>{toilets}</strong></div>
+                                </div>
+                                <div className='attributes-row'>
+                                    <div className='attribute'>Site Width<br/><strong>{site_width}</strong></div>
+                                    <div className='attribute'>Site Length<br/><strong>{site_length}</strong></div>
 
                                 </div>
+                        
                             </div>
                             
                         </div>
