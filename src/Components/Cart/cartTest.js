@@ -1,26 +1,26 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {setCart} from '../../redux/cartReducer';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import stripe from '../../stripeKey';
 
 const Cart = props => {
-    // const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([])
     const [startDateInput, setStartDateInput] = useState('');
     const [durationInput, setDurationInput] = useState('');
     const [editing, setEditing] = useState(false)
 
 
     useEffect(() => {
+        console.log(props)
         rerender();
     }, [props.user.customer_order_id])
 
 
     const rerender = () => {
         axios.get(`/api/cart/${props.user.customer_order_id}`)
-        .then(res => props.setCart(res.data))
+        .then(res => setCart(res.data))
         .catch(err => console.log(err))
     }
 
@@ -38,15 +38,12 @@ const Cart = props => {
         .then(res => {
             setCart(res.data)
         })
-        .then(() => {
-            rerender()
-        })
         .catch(err => console.log(err))
     }
 
 
     const edit = () => {
-        setEditing(!editing)
+        setEditing(true)
     }
 
     
@@ -63,14 +60,10 @@ const Cart = props => {
         // })
         .catch(err => console.log(err))
     }
-    
 
-
-    const cartTotal = props.cart.reduce((total, current) => {
-        return total + (current.campsite_price * current.duration).toFixed(2)
+    const cartTotal = cart.reduce((total, current) => {
+        return (total + (current.campsite_price * current.duration)).toFixed(2)
     }, 0 )
-
-    console.log(props.cart)
 
     return(
         <div>
@@ -86,7 +79,7 @@ const Cart = props => {
                         <p className='cart-header-row-item'>Days</p>
                         <p className='cart-header-row-item'>Total</p>
                     </div>
-                    {props.cart && props.cart.map((cart, campsite_id) => {
+                    {cart && cart.map((cart, campsite_id) => {
                         const {campsite_primary_img_url, park_name, campground_name, campsite_name, start_date, duration, campsite_price, order_item_id} = cart
                         const total = duration * campsite_price
                         
@@ -118,8 +111,6 @@ const Cart = props => {
                                             onChange={(e) => setDurationInput(e.target.value)}
                                         />
                                         <button onClick={() => submitEdit(order_item_id, startDateInput, durationInput)}>Submit</button>
-                                        <button onClick={edit}>Cancel</button>
-
                                     </div>
                                  ) : (
                                     <div>
@@ -163,10 +154,9 @@ const Cart = props => {
 }
 
 function mapStateToProps(state) {
-    return {user: state.userReducer.user,
-            cart: state.cartReducer.cart}
+    return {user: state.userReducer.user}
 }
 
-export default connect(mapStateToProps, {setCart})(withRouter(Cart));
+export default connect(mapStateToProps)(withRouter(Cart));
 
 

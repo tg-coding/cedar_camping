@@ -47,7 +47,7 @@ const Landing = props => {
 
             <div id='hero'>
                 <h1>The outdoors are calling</h1>
-                <button>find the perfect place to camp</button>
+                <button>find the perfect camping destination</button>
             </div>
 
             <div className='featured-container'>

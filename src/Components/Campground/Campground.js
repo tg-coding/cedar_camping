@@ -6,19 +6,10 @@ import googleMap from '../../googleMap';
 
 
 
+
 const Campground = props => {
 
     const [campsites, setCampsites] = useState([]);
-
-
-    // useEffect(() => {
-    //     axios.get('/api/campsites').then(res => {
-    //         setCampsites(res.data)
-    //     }).catch(err => console.log(err))
-    //     axios.get('/api/')
-    // }, [])
-
-    // const [searchResults, setSearchResults] = useState([]);
 
 
     useEffect(() => {
@@ -73,7 +64,6 @@ const Campground = props => {
         )
     })
 
-    // const{campground_img, campground_img_credit} = campsite
     return(
         <div className='campgrounds-container'>
             
