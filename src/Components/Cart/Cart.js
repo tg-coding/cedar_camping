@@ -67,7 +67,7 @@ const Cart = props => {
 
 
     const cartTotal = props.cart.reduce((total, current) => {
-        return total + (current.campsite_price * current.duration).toFixed(2)
+        return total + (current.campsite_price * current.duration)
     }, 0 )
 
     console.log(props.cart)
@@ -137,7 +137,7 @@ const Cart = props => {
                     <div className='subtotal-container'>
                         <p className='subtotal-text'>Subtotal</p>
                         <h2 className='subtotal-total'>
-                        {cartTotal}
+                        {cartTotal.toFixed(2)}
                         </h2>
                     </div>
                     {/* <button className='checkout-btn'>checkout</button> */}
