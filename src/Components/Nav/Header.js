@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import AuthModal from '../AuthModal/AuthModal';
 import axios from 'axios';
+import logo from '../../logo/great-outdoors-logo_white.svg'
+import './header.scss';
 
 class Header extends Component{
     constructor(){
@@ -38,7 +40,7 @@ class Header extends Component{
     render(){
         return(
             <header>
-                <img src='' id='logo' alt='logo' onClick={() => this.props.history.push('/')}/>
+                <img src={logo} id='logo' alt='logo' onClick={() => this.props.history.push('/')}/>
 
                 <nav id='desktop-nav'>
 
@@ -56,11 +58,11 @@ class Header extends Component{
                         <button onClick={this.modalToggle} className='desktop-login-logout-btn'>Login</button>
                     )}
                     
-                    <FontAwesomeIcon id='desktop-cart-btn' icon={faShoppingCart} onClick={() => this.props.history.push('/cart')}/>
+                    <FontAwesomeIcon id='cart-btn' icon={faShoppingCart} onClick={() => this.props.history.push('/cart')}/>
                 </nav>
 
                 <nav id='mobile-nav'>
-                        <FontAwesomeIcon id='mobile-cart-btn' icon={faShoppingCart} onClick={() => this.props.history.push('/cart')}/>
+                        <FontAwesomeIcon id='cart-btn' icon={faShoppingCart} onClick={() => this.props.history.push('/cart')}/>
                         <button id='mobile-menu-btn' onClick={this.dropdownToggle}>&#9776;</button>
 
                     {this.state.showDropdown ? (

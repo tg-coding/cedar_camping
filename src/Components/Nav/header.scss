@@ -1,0 +1,79 @@
+@import '../../sass/colors';
+@import '../../sass/mixins';
+
+header {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(
+        120deg,
+        rgba(23, 72, 115, 1) 0%,
+        rgba(45, 101, 77, 1) 100%
+    );   
+    @include for-phone{
+        height: 70px;
+    };
+    @include for-tablet-portrait{
+        height: 90px;
+        width: 100%;
+    };
+    @include for-desktop{
+        max-width: 1100px;
+    };
+};
+
+#logo{
+    @include for-phone{
+        width: 167px;
+    };
+    @include for-tablet-portrait{
+        width: 210px;
+    };
+    @include for-desktop{
+        width: 250px;
+    };
+};
+
+#mobile-nav{
+    @include for-phone{
+        display: inherit;
+    };
+    @include for-tablet-portrait{
+        display: inherit;
+    };
+    @include for-tablet-landscape{
+        display: none;
+    };
+    @include for-desktop{
+        display: none;
+    };
+}
+
+#desktop-nav{
+    @include for-phone{
+        display: none;
+    };
+    @include for-tablet-portrait{
+        display: none;
+    };
+    @include for-tablet-landscape{
+        display: inherit;
+    };
+    @include for-desktop{
+        display: inherit;
+    };
+}
+
+#cart-btn{
+    height: 24px;
+    color: white;
+    margin: auto;
+}
+
+#mobile-menu-btn{
+    font-size: 24px;
+    color: white;
+    padding: 0 0 0 20px;
+}

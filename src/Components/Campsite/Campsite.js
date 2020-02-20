@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {Carousel} from 'react-responsive-carousel';
 import axios from 'axios';
-import './carousel.css';
+import './carousel.scss';
 
 const Campsite = props => {
 
