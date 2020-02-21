@@ -27,12 +27,15 @@ class Header extends Component{
 
     modalToggle = () => {
         this.setState({showModal: !this.state.showModal})
+        this.setState({showDropdown: false})
+
     }
 
 
     logout = () => {
         axios.post('/auth/logout');
         this.props.getUser({})
+        this.setState({showDropdown: !this.state.showDropdown})
     }
 
 
@@ -65,21 +68,24 @@ class Header extends Component{
                         <FontAwesomeIcon id='cart-btn' icon={faShoppingCart} onClick={() => this.props.history.push('/cart')}/>
                         <button id='mobile-menu-btn' onClick={this.dropdownToggle}>&#9776;</button>
 
+
                     {this.state.showDropdown ? (
 
                         <div id='dropdown-container'>
                             {this.props.user.customer_id ? (
                                 <div className='dropdown-links'>
-                                    <p id='desktop-username'>Hello {this.props.user.username}!</p>
-                                    <Link to='/' className='mobile-nav-link'>Home</Link>
+                                    <p id='mobile-welcome-text'>Welcome</p>
+                                    <p id='mobile-username'> {this.props.user.username}</p>
+                                    <hr className='mobile-line'/>
+                                    <Link to='/' className='mobile-nav-link' >Home</Link>
                                     <Link to='/campgrounds' className='mobile-nav-link'>Campgrounds</Link>
-                                    <button onClick={this.logout} className='desktop-login-logout-btn'>Logout</button>
+                                    <button onClick={this.logout} className='mobile-login-logout-btn'>Logout</button>
                                 </div>
                             ) : (
                                 <div className='dropdown-links'>
-                                    <button onClick={this.modalToggle} className='desktop-login-logout-btn'>Login</button>
                                     <Link to='/' className='mobile-nav-link'>Home</Link>
                                     <Link to='/campgrounds' className='mobile-nav-link'>Campgrounds</Link>
+                                    <button onClick={this.modalToggle} className='mobile-login-logout-btn'>Login</button>
                                 </div>
                             )}
                             

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import axios from 'axios';
+import './landing.scss';
 
 const Landing = props => {
 
@@ -30,8 +31,8 @@ const Landing = props => {
           return (
               <div key={i} className='campground-container' onClick={() => props.history.push(`/campground/${campground_id}`)}>
                   <img id='campground-preview-img' src={campground_img} alt={campground_name} />
-                  <p>{park_name}</p>
-                  <h3>{campground_name}</h3>
+                  <p className='preview-park-name'>{park_name}</p>
+                  <h3 className='preview-campground-name'>{campground_name}</h3>
               </div>
           )
       })
@@ -39,23 +40,20 @@ const Landing = props => {
    
 
     return(
-        
-
 
         <div className='landing-container'>
             
-
             <div id='hero'>
-                <h1>The outdoors are calling</h1>
-                <button>find the perfect camping destination</button>
+                <h1 className='landing-hero-text'>THE OUTDOORS ARE CALLING.</h1>
+                <button className='landing-hero-btn' onClick={() => props.history.push(`/campgrounds`)}>FIND THE PERFECT CAMPING DESTINATION</button>
             </div>
 
             <div className='featured-container'>
-                <h2>Popular Locations</h2>
+                <h2 className='popular-text'>Popular Campgrounds</h2>
                 <div className='featured-campgrounds'>
                     {mappedCampgrounds}
                 </div>
-                <Link to='/campgrounds' className='desktop-nav-link'>Browse More Campgrounds</Link>
+                <button className='more-campgrounds-btn' onClick={() => props.history.push(`/campgrounds`)}>Browse More Campgrounds</button>
             </div>
 
         </div>

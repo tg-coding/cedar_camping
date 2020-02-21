@@ -1,0 +1,148 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.landing-container {
+  width: 100%;
+  max-width: 1100px;
+}
+
+#hero {
+  width: 100%;
+  background-image: url("https://images.unsplash.com/photo-1581185274266-3985fb0fc8ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1996&q=80");
+  //   background-color: #ffffff3d;
+  //   background-blend-mode: screen;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  box-shadow: inset 0px 15px 12px -10px rgba(0, 0, 0, 0.315);
+  @include for-phone {
+    height: 340px;
+  }
+  @include for-tablet-portrait {
+  }
+  @include for-tablet-landscape {
+  }
+  @include for-desktop {
+  }
+
+  .landing-hero-text {
+    @include mobile-heading;
+    @include for-phone {
+      width: 300px;
+      font-size: 43px;
+      line-height: 45px;
+      padding-top: 80px;
+      padding-bottom: 20px;
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+  }
+
+  .landing-hero-btn {
+    @include white-btn;
+    font-size: 13px;
+    @include for-phone {
+      width: 250px;
+    }
+    @include for-tablet-portrait {
+      width: auto;
+    }
+  }
+  .landing-hero-btn:hover {
+    color: #387338;
+  }
+}
+
+.popular-text {
+  @include display-font;
+  color: $dark-blue-color;
+  @include for-phone {
+    font-size: 23px;
+    margin-bottom: 0;
+  }
+  @include for-tablet-portrait {
+  }
+  @include for-tablet-landscape {
+  }
+  @include for-desktop {
+  }
+}
+
+.featured-campgrounds {
+  margin: auto;
+
+  @include for-phone {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 10px;
+  }
+  @include for-tablet-portrait {
+  }
+  @include for-tablet-landscape {
+  }
+  @include for-desktop {
+  }
+}
+
+.campground-container {
+  @include product-backgrounds;
+  width: 162px;
+  height: 215px;
+  margin: 7px 5px;
+
+  #campground-preview-img {
+    height: 118px;
+    width: 142px;
+    object-fit: cover;
+    margin: 10px auto 0 auto;
+  }
+
+  .preview-park-name {
+    font-family: $sub-heading-font;
+    color: $dark-blue-color;
+    font-weight: 500;
+
+    @include for-phone {
+        width: 142px;
+        font-size: 12px;
+      margin: 2px auto;
+    }
+    @include for-tablet-portrait {
+      font-size: 14px;
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+  }
+
+  .preview-campground-name{
+      @include display-font;
+      color: $green-color;
+      @include for-phone {
+        width: 142px;
+        font-size: 18px;
+        line-height: 19px;
+        margin: 5px auto;
+      }
+      @include for-tablet-portrait {
+      }
+      @include for-tablet-landscape {
+      }
+      @include for-desktop {
+      }
+  }
+
+}
+
+.more-campgrounds-btn{
+    @include green-btn;
+    font-size: 13px;
+    margin: 20px auto 30px auto;
+  }

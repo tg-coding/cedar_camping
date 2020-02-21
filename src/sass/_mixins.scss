@@ -1,27 +1,117 @@
 @mixin for-phone {
   @media (max-width: 599px) {
     @content;
-  };
-};
+  }
+}
 
 @mixin for-tablet-portrait {
   @media (min-width: 600px) {
     @content;
-  };
-};
+  }
+}
 
 @mixin for-tablet-landscape {
   @media (min-width: 900px) {
     @content;
-  };
-};
+  }
+}
 
 @mixin for-desktop {
   @media (min-width: 1200px) {
     @content;
-  };
-};
+  }
+}
 
+// font mixins
+@mixin mobile-heading {
+  font-family: ff-market-web, sans-serif;
+  font-size: 31px;
+  line-height: 32px;
+  -webkit-text-stroke: 1px;
+  text-transform: uppercase;
+  color: white;
+  margin: auto;
+  letter-spacing: 0.1em;
+}
+
+@mixin display-font {
+  font-family: ff-market-web, sans-serif;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.75px;
+  letter-spacing: 0.1em;
+}
+
+@mixin sub-heading-font {
+  font-family: montserrat, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+
+// @mixin preview-park-name {
+//   font-family: montserrat, sans-serif;
+// }
+
+
+@mixin mobile-park-name-heading {
+}
+
+// hero images
+@mixin hero-images {
+  background-color: #ffffff3d;
+  background-blend-mode: screen;
+}
+
+// buttons
+@mixin white-btn {
+  height: auto;
+  padding: 10px 30px;
+  background-color: white;
+  color: #174873;
+  font-family: montserrat, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+}
+
+@mixin blue-btn {
+  width: auto;
+  height: auto;
+  padding: 10px 30px;
+  background-color: #174873;
+  color: white;
+  font-family: montserrat, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+}
+
+@mixin green-btn {
+  width: auto;
+  height: auto;
+  padding: 10px 30px;
+  background-color: #387338;
+  color: white;
+  font-family: montserrat, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+}
+
+
+// small product backgrounds
+@mixin product-backgrounds{
+  background: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.192);
+
+}
 
 // @include for-phone{
 

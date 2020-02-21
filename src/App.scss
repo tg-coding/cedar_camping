@@ -2,17 +2,22 @@
 
 .App {
   text-align: center;
+  height: auto;
+  width: 100%;
+  max-width: 1100px;
+  background-color: rgb(236, 236, 236);
+  margin: auto;
 }
 
-@include for-phone{
-  width: 100%;
-};
-@include for-tablet-portrait{
-  width: 100%;
-};
-@include for-tablet-landscape{
-  width: 100%;
-};
-@include for-desktop{
-  max-width: 1100px;
-};
+// @include for-phone{
+//   width: 100%;
+// };
+// @include for-tablet-portrait{
+//   width: 100%;
+// };
+// @include for-tablet-landscape{
+//   width: 100%;
+// };
+// @include for-desktop{
+//   max-width: 1100px;
+// };
