@@ -30,8 +30,8 @@ const Campgrounds = props => {
         return (
             <div key={i} className='campground-container' onClick={() => props.history.push(`/campground/${campground_id}`)}>
                 <img id='campground-preview-img' src={campground_img} alt={campground_name} />
-                <p>{park_name}</p>
-                <h3>{campground_name}</h3>
+                <p className='preview-park-name'>{park_name}</p>
+                <h3 className='preview-campground-name'>{campground_name}</h3>
             </div>
         )
     })

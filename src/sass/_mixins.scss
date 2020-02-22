@@ -125,3 +125,126 @@
 // @include for-desktop{
 
 // };
+
+
+
+
+
+
+
+@mixin featured-campgrounds {
+  margin: auto;
+
+  @include for-phone {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 10px;
+  }
+  @include for-tablet-portrait {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 30px;
+  }
+  @include for-tablet-landscape {
+    height: 340px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  @include for-desktop {
+    width: 1050px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    overflow: visible;
+    margin: -10px auto 0 auto;
+    padding: 0;
+  }
+}
+
+@mixin campground-container{
+  @include for-phone {
+    width: 162px;
+    height: 215px;
+    margin: 7px 5px;
+  }
+  @include for-tablet-portrait {
+    width: 250px;
+    height: 300px;
+    margin: 10px 8px;
+  }
+  @include for-tablet-landscape {
+    width: 250px;
+    height: 300px;
+    margin: 10px 8px;
+    padding: 0 0 15px 0;
+    flex: 0 0 auto;
+  }
+  @include for-desktop {
+    width: 250px;
+    height: 300px;
+    margin: 10px 8px;
+    padding: 0 0 15px 0;
+  }
+}
+
+
+@mixin campground-preview-img {
+  object-fit: cover;
+  @include for-phone {
+    height: 118px;
+    width: 142px;
+    margin: 10px auto 0 auto;
+  }
+  @include for-tablet-portrait {
+    height: 180px;
+    width: 218px;
+    margin: 16px auto 0 auto;
+  }
+  @include for-tablet-landscape {
+    height: 180px;
+    width: 218px;
+    margin: 16px auto 0 auto;
+  }
+  @include for-desktop {
+  }
+}
+
+
+@mixin preview-park-name {
+  font-family: $sub-heading-font;
+  color: $dark-blue-color;
+  font-weight: 500;
+
+  @include for-phone {
+    width: 142px;
+    font-size: 12px;
+    margin: 2px auto;
+  }
+  @include for-tablet-portrait {
+    width: 218px;
+    font-size: 14px;
+    margin: 5px auto;
+  }
+}
+
+@mixin preview-campground-name {
+  @include display-font;
+  color: $green-color;
+  @include for-phone {
+    width: 142px;
+    font-size: 18px;
+    line-height: 19px;
+    margin: 5px auto;
+  }
+  @include for-tablet-portrait {
+    width: 218px;
+    font-size: 22px;
+    line-height: 23px;
+    margin: 10px auto;
+  }
+}

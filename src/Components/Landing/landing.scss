@@ -9,37 +9,53 @@
 #hero {
   width: 100%;
   background-image: url("https://images.unsplash.com/photo-1581185274266-3985fb0fc8ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1996&q=80");
+  background-position: bottom;
   //   background-color: #ffffff3d;
   //   background-blend-mode: screen;
   background-size: cover;
   position: relative;
   z-index: 1;
   box-shadow: inset 0px 15px 12px -10px rgba(0, 0, 0, 0.315);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   @include for-phone {
     height: 340px;
   }
   @include for-tablet-portrait {
+    height: 450px;
   }
   @include for-tablet-landscape {
+    height: 450px;
   }
   @include for-desktop {
+    height: 450px;
   }
 
   .landing-hero-text {
     @include mobile-heading;
     text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.342);
+    margin: 0 0 20px 0;
     @include for-phone {
       width: 300px;
       font-size: 43px;
       line-height: 45px;
-      padding-top: 80px;
-      padding-bottom: 20px;
     }
     @include for-tablet-portrait {
+      width: 400px;
+      font-size: 54px;
+      line-height: 58px;
     }
     @include for-tablet-landscape {
+      width: auto;
+      font-size: 54px;
+      line-height: 58px;
     }
     @include for-desktop {
+      width: auto;
+      font-size: 68px;
+      line-height: 74px;
     }
   }
 
@@ -61,102 +77,34 @@
 .popular-text {
   @include display-font;
   color: $dark-blue-color;
+  margin-bottom: 0;
   @include for-phone {
     font-size: 23px;
-    margin-bottom: 0;
   }
   @include for-tablet-portrait {
-  }
-  @include for-tablet-landscape {
-  }
-  @include for-desktop {
+    font-size: 26px;
   }
 }
 
 .featured-campgrounds {
-  margin: auto;
-
-  @include for-phone {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 0 10px;
-  }
-  @include for-tablet-portrait {
-  }
-  @include for-tablet-landscape {
-  }
-  @include for-desktop {
-  }
+  @include featured-campgrounds;
 }
 
 .campground-container {
   @include product-backgrounds;
+  @include campground-container;
 
-  @include for-phone {
-    width: 162px;
-    height: 215px;
-    margin: 7px 5px;
-  }
-  @include for-tablet-portrait {
-    font-size: 14px;
-  }
-  @include for-tablet-landscape {
-  }
-  @include for-desktop {
-  }
 
   #campground-preview-img {
-    @include for-phone {
-      height: 118px;
-      width: 142px;
-      object-fit: cover;
-      margin: 10px auto 0 auto;
-    }
-    @include for-tablet-portrait {
-      font-size: 14px;
-    }
-    @include for-tablet-landscape {
-    }
-    @include for-desktop {
-    }
+    @include campground-preview-img;
   }
 
   .preview-park-name {
-    font-family: $sub-heading-font;
-    color: $dark-blue-color;
-    font-weight: 500;
-
-    @include for-phone {
-      width: 142px;
-      font-size: 12px;
-      margin: 2px auto;
-    }
-    @include for-tablet-portrait {
-      font-size: 14px;
-    }
-    @include for-tablet-landscape {
-    }
-    @include for-desktop {
-    }
+    @include preview-park-name;
   }
 
   .preview-campground-name {
-    @include display-font;
-    color: $green-color;
-    @include for-phone {
-      width: 142px;
-      font-size: 18px;
-      line-height: 19px;
-      margin: 5px auto;
-    }
-    @include for-tablet-portrait {
-    }
-    @include for-tablet-landscape {
-    }
-    @include for-desktop {
-    }
+    @include preview-campground-name;
   }
 }
 

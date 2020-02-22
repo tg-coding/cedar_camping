@@ -7,13 +7,13 @@
 }
 
 .campgrounds-landing-hero {
-    height: 280px;
-width: 100%;
+  height: 280px;
+  width: 100%;
   background-image: url("https://images.unsplash.com/photo-1515709000217-00d2355d2348?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2039&q=80");
   background-size: cover;
-  
-//   background-color: rgba(255, 255, 255, 0.219);
-//   background-blend-mode: screen;
+
+  //   background-color: rgba(255, 255, 255, 0.219);
+  //   background-blend-mode: screen;
   position: relative;
   box-shadow: inset 0px 15px 12px -10px rgba(0, 0, 0, 0.315);
   display: flex;
@@ -24,7 +24,19 @@ width: 100%;
     // padding: ;
     margin: 0 auto 30px auto;
     text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.342);
-    
+    @include for-phone {
+      width: 360px
+    }
+    @include for-tablet-portrait {
+      width: 450px
+
+    }
+    @include for-tablet-landscape {
+      width: 820px
+
+    }
+    @include for-desktop {
+    }
   }
 
   .search-input {
@@ -50,3 +62,38 @@ width: 100%;
     letter-spacing: 0.1em;
   }
 }
+
+.campgrounds-listing {
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  // align-items: flex-start;
+  justify-content: space-evenly;
+  margin: 10px 0 30px 0;
+
+  @include for-phone {
+    padding: 0 10px;
+  }
+  @include for-tablet-portrait {
+    padding: 0 30px;
+  }
+  @include for-tablet-landscape {
+    padding: 0 50px;
+
+  }
+  @include for-desktop {
+    // max-width: 1050px;
+    // margin: 30px -100px 30px 0;
+
+    // padding: 0  0;
+
+
+    // width: 1050px;
+    // justify-content: space-evenly;
+    // overflow: visible;
+    // margin: 0px 0px 0px 0px;
+    // padding: 0;
+  }
+}
+

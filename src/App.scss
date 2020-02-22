@@ -13,7 +13,7 @@
 h2 {
   @include display-font;
   color: white;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   @include for-phone {
     font-size: 32px;
     line-height: 31px;
@@ -23,11 +23,12 @@ h2 {
     line-height: 42px;
   }
   @include for-tablet-landscape {
-    font-size: 48px;
+    font-size: 41px;
     line-height: 52px;
   }
   @include for-desktop {
-
+    font-size: 48px;
+    line-height: 52px;
   }
 }
 
