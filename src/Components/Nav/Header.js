@@ -52,13 +52,16 @@ class Header extends Component{
                     <Link to='/campgrounds' className='desktop-nav-link'>Campgrounds</Link>
 
                     {this.props.user.customer_id ? (
-                        <div className='desktop-user-info'>
+                        <div className='desktop-user-info-container'>
                             <img id='desktop-profile-pic' src={this.props.user.profile_pic} alt={this.props.user.username} />
-                            <p id='desktop-username'>{this.props.user.username}</p>
-                            <button onClick={this.logout} className='desktop-login-logout-btn'>Logout</button>
+                            <div className='desktop-user-info'>
+                                <p className='desktop-welcome'>Welcome</p>
+                                <p id='desktop-username'>{this.props.user.username}</p>
+                                <button onClick={this.logout} className='desktop-logout-btn'>Logout</button>
+                            </div>                       
                         </div>
                     ) : (
-                        <button onClick={this.modalToggle} className='desktop-login-logout-btn'>Login</button>
+                        <button onClick={this.modalToggle} className='desktop-login-btn'>Login</button>
                     )}
                     
                     <FontAwesomeIcon id='cart-btn' icon={faShoppingCart} onClick={() => this.props.history.push('/cart')}/>

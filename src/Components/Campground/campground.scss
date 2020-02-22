@@ -83,11 +83,16 @@
   }
 }
 
+
+
+
 .google-map-container {
   height: 300px;
   width: 100%;
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 30px auto 0 auto;
+  overflow: hidden;
+  position: relative;
 }
 
 .campsite-container {

@@ -26,6 +26,7 @@ const Campground = props => {
     width: '100%',
     maxWidth: '1100px',
     height: '300px',
+    overflow: 'hidden'
   };
     
     const campgroundHero = campsites.slice(0,1).map((campsite, i) => {
@@ -49,16 +50,14 @@ const Campground = props => {
     const campgroundMap = campsites.slice(0,1).map((campsite, i) => {
         const {campground_latitude, campground_longitude} = campsite
         return(
-            <div key={i} >
-                <div className='google-map-container'>
-                    <Map
-                        google={props.google}
-                        zoom={8}
-                        style={mapStyles}
-                        initialCenter={{lat: campground_latitude, lng: campground_longitude}} >
-                            <Marker position={{lat: campground_latitude, lng: campground_longitude}} />
-                    </Map>
-                </div>
+            <div key={i} className='google-map-container'>
+                <Map
+                    google={props.google}
+                    zoom={8}
+                    style={mapStyles}
+                    initialCenter={{lat: campground_latitude, lng: campground_longitude}} >
+                        <Marker position={{lat: campground_latitude, lng: campground_longitude}} />
+                </Map>
             </div>
         )
     })
