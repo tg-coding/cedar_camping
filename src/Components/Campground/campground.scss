@@ -1,0 +1,208 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.campground-landing-hero {
+  width: 100%;
+}
+
+#campground-background-container {
+  width: 100%;
+  background-size: cover;
+  box-shadow: inset 0px 15px 12px -10px rgba(0, 0, 0, 0.315);
+  margin-bottom: 30px;
+
+  @include for-phone {
+    height: 350px;
+  }
+  @include for-tablet-portrait {
+  }
+  @include for-tablet-landscape {
+    height: 280px;
+  }
+  @include for-desktop {
+  }
+
+  .campground-background-overlay {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.281);
+    background-blend-mode: color;
+    // position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    position: relative;
+
+    #campground-hero-park-name,
+    #campground-hero-name,
+    #campground-hero-coordinates,
+    #campground-hero-desc,
+    #campground-hero-img-credit {
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.651);
+    }
+
+    #campground-hero-park-name {
+      margin: 0 auto;
+    }
+
+    #campground-hero-name {
+      margin: 8px auto;
+    }
+
+    #campground-hero-coordinates {
+      margin: 0 auto;
+    }
+
+    #campground-hero-desc {
+      font-family: $info-font;
+      font-weight: 600;
+      color: white;
+      margin: 12px auto;
+      @include for-phone {
+        font-size: 12px;
+        line-height: 16px;
+        width: 335px;
+      }
+      @include for-tablet-portrait {
+      }
+      @include for-tablet-landscape {
+      }
+      @include for-desktop {
+      }
+    }
+
+    #campground-hero-img-credit {
+      margin: 0 auto;
+      font-family: $info-font;
+      font-size: 11px;
+      color: white;
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+    }
+  }
+}
+
+.google-map-container {
+  height: 300px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.campsite-container {
+  @include product-backgrounds;
+  display: flex;
+  align-items: center;
+  margin: 10px auto;
+  text-align: left;
+
+  @include for-phone {
+    height: 139px;
+    width: 335px;
+  }
+  @include for-tablet-portrait {
+    height: 171px;
+    width: 413px;
+  }
+
+  #campsite-preview-img {
+    object-fit: cover;
+
+    @include for-phone {
+      margin-left: 10px;
+      height: 116px;
+      width: 141px;
+    }
+    @include for-tablet-portrait {
+      height: 144px;
+      width: 175px;
+    }
+  }
+
+  .campsite-preview-info {
+    padding-left: 10px;
+    position: relative;
+    @include for-phone {
+      width: 170px;
+      height: 116px;
+    }
+    @include for-tablet-portrait {
+      width: 170px;
+    }
+
+    #campsite-prev-park-name {
+      margin: 0;
+      font-family: $sub-heading-font;
+      color: $light-gray-text-color;
+      @include for-phone {
+        font-size: 11px;
+      }
+      @include for-tablet-portrait {
+        font-size: 12px;
+      }
+    }
+    #campsite-prev-cg-name {
+      @include display-font;
+      color: $light-gray-text-color;
+      margin: 5px 0;
+      @include for-phone {
+        font-size: 17px;
+        line-height: 19px;
+      }
+      @include for-tablet-portrait {
+        font-size: 20px;
+        line-height: 22px;
+      }
+    }
+    #campsite-prev-cs-name {
+      font-family: $sub-heading-font;
+      font-weight: bold;
+      color: $dark-blue-color;
+      letter-spacing: 0.02em;
+      margin: 5px 0;
+
+      @include for-phone {
+        font-size: 16px;
+      }
+      @include for-tablet-portrait {
+        font-size: 18px;
+      }
+    }
+
+    #campsite-prev-type {
+      font-family: $info-font;
+      font-weight: 600;
+      color: $light-gray-text-color;
+      margin: 5px 0;
+
+      @include for-phone {
+        font-size: 11px;
+        line-height: 15px;
+      }
+      @include for-tablet-portrait {
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+
+    #campsite-prev-price {
+      font-family: $sub-heading-font;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+      color: $dark-blue-color;
+      text-align: right;
+      margin: 0;
+      position: absolute;
+      right: 10px;
+      bottom: 0;
+      @include for-phone {
+        font-size: 17px;
+        // margin-right: 10px;
+      }
+      @include for-tablet-portrait {
+        font-size: 21px;
+      }
+    }
+  }
+}

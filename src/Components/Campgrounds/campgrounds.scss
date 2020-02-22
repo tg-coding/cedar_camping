@@ -1,0 +1,52 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.campgrounds-container {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.campgrounds-landing-hero {
+    height: 280px;
+width: 100%;
+  background-image: url("https://images.unsplash.com/photo-1515709000217-00d2355d2348?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2039&q=80");
+  background-size: cover;
+  
+//   background-color: rgba(255, 255, 255, 0.219);
+//   background-blend-mode: screen;
+  position: relative;
+  box-shadow: inset 0px 15px 12px -10px rgba(0, 0, 0, 0.315);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .campgrounds-hero-text {
+    // padding: ;
+    margin: 0 auto 30px auto;
+    text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.342);
+    
+  }
+
+  .search-input {
+    font-family: $sub-heading-font;
+    font-size: 12px;
+    font-family: montserrat, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.08em;
+    height: 30px;
+    width: 415px;
+    max-width: 70%;
+    padding: 0 15px;
+    border: none;
+    border-radius: 5px;
+    color: #767676;
+    background-color: white;
+    margin: 10px auto;
+  }
+
+  .search-input::placeholder {
+    color: #7676767a;
+    letter-spacing: 0.1em;
+  }
+}

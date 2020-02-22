@@ -77,14 +77,14 @@ class Header extends Component{
                                     <p id='mobile-welcome-text'>Welcome</p>
                                     <p id='mobile-username'> {this.props.user.username}</p>
                                     <hr className='mobile-line'/>
-                                    <Link to='/' className='mobile-nav-link' >Home</Link>
-                                    <Link to='/campgrounds' className='mobile-nav-link'>Campgrounds</Link>
+                                    <Link to='/' className='mobile-nav-link' onClick={this.dropdownToggle}>Home</Link>
+                                    <Link to='/campgrounds' className='mobile-nav-link' onClick={this.dropdownToggle}>Campgrounds</Link>
                                     <button onClick={this.logout} className='mobile-login-logout-btn'>Logout</button>
                                 </div>
                             ) : (
                                 <div className='dropdown-links'>
-                                    <Link to='/' className='mobile-nav-link'>Home</Link>
-                                    <Link to='/campgrounds' className='mobile-nav-link'>Campgrounds</Link>
+                                    <Link to='/' className='mobile-nav-link' onClick={this.dropdownToggle}>Home</Link>
+                                    <Link to='/campgrounds' className='mobile-nav-link' onClick={this.dropdownToggle}>Campgrounds</Link>
                                     <button onClick={this.modalToggle} className='mobile-login-logout-btn'>Login</button>
                                 </div>
                             )}

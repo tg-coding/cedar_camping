@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import './campgrounds.scss'
 
 const Campgrounds = props => {
 
@@ -40,11 +41,11 @@ const Campgrounds = props => {
         <div className='campgrounds-container'>
             
             <div className='campgrounds-landing-hero'>
-                <h2>Tagline</h2>
+                <h2 className='campgrounds-hero-text'>Find the perfect camping destination.</h2>
                 <input 
                     className='search-input'
                     value={searchInput}
-                    placeholder='search'
+                    placeholder='SEARCH'
                     onChange={(e) => setSearchInput(e.target.value)}
                 />
             </div>

@@ -27,6 +27,7 @@
 
   .landing-hero-text {
     @include mobile-heading;
+    text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.342);
     @include for-phone {
       width: 300px;
       font-size: 43px;
@@ -92,15 +93,34 @@
 
 .campground-container {
   @include product-backgrounds;
-  width: 162px;
-  height: 215px;
-  margin: 7px 5px;
+
+  @include for-phone {
+    width: 162px;
+    height: 215px;
+    margin: 7px 5px;
+  }
+  @include for-tablet-portrait {
+    font-size: 14px;
+  }
+  @include for-tablet-landscape {
+  }
+  @include for-desktop {
+  }
 
   #campground-preview-img {
-    height: 118px;
-    width: 142px;
-    object-fit: cover;
-    margin: 10px auto 0 auto;
+    @include for-phone {
+      height: 118px;
+      width: 142px;
+      object-fit: cover;
+      margin: 10px auto 0 auto;
+    }
+    @include for-tablet-portrait {
+      font-size: 14px;
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
   }
 
   .preview-park-name {
@@ -109,8 +129,8 @@
     font-weight: 500;
 
     @include for-phone {
-        width: 142px;
-        font-size: 12px;
+      width: 142px;
+      font-size: 12px;
       margin: 2px auto;
     }
     @include for-tablet-portrait {
@@ -122,27 +142,26 @@
     }
   }
 
-  .preview-campground-name{
-      @include display-font;
-      color: $green-color;
-      @include for-phone {
-        width: 142px;
-        font-size: 18px;
-        line-height: 19px;
-        margin: 5px auto;
-      }
-      @include for-tablet-portrait {
-      }
-      @include for-tablet-landscape {
-      }
-      @include for-desktop {
-      }
+  .preview-campground-name {
+    @include display-font;
+    color: $green-color;
+    @include for-phone {
+      width: 142px;
+      font-size: 18px;
+      line-height: 19px;
+      margin: 5px auto;
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
   }
-
 }
 
-.more-campgrounds-btn{
-    @include green-btn;
-    font-size: 13px;
-    margin: 20px auto 30px auto;
-  }
+.more-campgrounds-btn {
+  @include green-btn;
+  font-size: 13px;
+  margin: 20px auto 30px auto;
+}

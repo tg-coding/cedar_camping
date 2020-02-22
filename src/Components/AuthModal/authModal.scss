@@ -61,14 +61,26 @@
     }
 
     .auth-modal-input{
+        font-family: $sub-heading-font;
+        font-size: 13px;
+        font-family: montserrat, sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        letter-spacing: .08em;
         height: 30px;
         width: 360px;
         max-width: 75%;
+        padding: 0 15px;
         border: none;
         border-radius: 5px;
-        color: white;
+        color: #767676;
         background-color: $auth-input-color;
-        margin: 10px auto;
+        margin: 10px auto; 
+    }
+
+    .auth-modal-input::placeholder{
+        color: white;
+        letter-spacing: .1em;
     }
 
     .auth-modal-btn{
@@ -81,6 +93,7 @@
         width: 300px;
         max-width: 70%;
         font-family: $sub-heading-font;
+        font-weight: 500;
         color: $dark-blue-color;
         text-decoration: underline $dark-blue-color;
         font-size: 12px;
