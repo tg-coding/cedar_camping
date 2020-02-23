@@ -8,6 +8,7 @@
 #campground-background-container {
   width: 100%;
   background-size: cover;
+  background-position: bottom;
   box-shadow: inset 0px 15px 12px -10px rgba(0, 0, 0, 0.315);
   margin-bottom: 30px;
 
@@ -15,6 +16,7 @@
     height: 350px;
   }
   @include for-tablet-portrait {
+    height: 370px;
   }
   @include for-tablet-landscape {
     height: 280px;
@@ -24,8 +26,8 @@
 
   .campground-background-overlay {
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.281);
-    background-blend-mode: color;
+    // background-color: rgba(0, 0, 0, 0.281);
+    // background-blend-mode: color;
     // position: relative;
     display: flex;
     flex-direction: column;
@@ -47,6 +49,16 @@
 
     #campground-hero-name {
       margin: 8px auto;
+
+      @include for-phone {
+        width: 300px;
+      }
+      @include for-tablet-portrait {
+      }
+      @include for-tablet-landscape {
+      }
+      @include for-desktop {
+      }
     }
 
     #campground-hero-coordinates {
@@ -64,10 +76,15 @@
         width: 335px;
       }
       @include for-tablet-portrait {
+        font-size: 13px;
+        line-height: 17px;
+        width: 520px;
       }
       @include for-tablet-landscape {
+        width: 700px;
       }
       @include for-desktop {
+        width: 700px;
       }
     }
 
@@ -83,32 +100,70 @@
   }
 }
 
-
-
-
 .google-map-container {
   height: 300px;
   width: 100%;
   max-width: 1100px;
-  margin: 30px auto 0 auto;
+  margin: 30px auto;
   overflow: hidden;
   position: relative;
+}
+
+
+.mapped-campsites-container{
+  @include for-phone {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  @include for-tablet-portrait {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  @include for-tablet-landscape {
+    width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0 auto;
+  }
+  @include for-desktop {
+    width: 1075px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0 10px;
+  }
 }
 
 .campsite-container {
   @include product-backgrounds;
   display: flex;
   align-items: center;
-  margin: 10px auto;
   text-align: left;
 
   @include for-phone {
-    height: 139px;
+    height: 160px;
     width: 335px;
+    margin: 10px auto;
   }
   @include for-tablet-portrait {
+    height: 210px;
+    width: 510px;
+    margin: 10px auto;
+  }
+  @include for-tablet-landscape {
     height: 171px;
     width: 413px;
+    margin: 10px 10px;
+  }
+  @include for-desktop {
+    height: 210px;
+    width: 510px;
+    margin: 10px 10px;
   }
 
   #campsite-preview-img {
@@ -116,24 +171,45 @@
 
     @include for-phone {
       margin-left: 10px;
-      height: 116px;
+      height: 140px;
       width: 141px;
     }
     @include for-tablet-portrait {
+      margin-left: 15px;
+      height: 180px;
+      width: 218px;
+    }
+    @include for-tablet-landscape {
+      margin-left: 13px;
       height: 144px;
       width: 175px;
     }
+    @include for-desktop {
+      margin-left: 15px;
+      height: 180px;
+      width: 218px;
+    }
   }
+
 
   .campsite-preview-info {
     padding-left: 10px;
     position: relative;
     @include for-phone {
-      width: 170px;
-      height: 116px;
+      width: 160px;
+      height: 140px;
     }
     @include for-tablet-portrait {
-      width: 170px;
+      height: 180px;
+      width: 250px;
+    }
+    @include for-tablet-landscape {
+      height: 144px;
+      width: 200px;
+    }
+    @include for-desktop {
+      height: 180px;
+      width: 250px;
     }
 
     #campsite-prev-park-name {
@@ -144,7 +220,13 @@
         font-size: 11px;
       }
       @include for-tablet-portrait {
-        font-size: 12px;
+        font-size: 13px;
+      }
+      @include for-tablet-landscape {
+        font-size: 11px;
+      }
+      @include for-desktop {
+        font-size: 14px;
       }
     }
     #campsite-prev-cg-name {
@@ -156,8 +238,16 @@
         line-height: 19px;
       }
       @include for-tablet-portrait {
+        font-size: 24px;
+        line-height: 25px;
+      }
+      @include for-tablet-landscape {
         font-size: 20px;
         line-height: 22px;
+      }
+      @include for-desktop {
+        font-size: 24px;
+        line-height: 25px;
       }
     }
     #campsite-prev-cs-name {
@@ -173,6 +263,12 @@
       @include for-tablet-portrait {
         font-size: 18px;
       }
+      @include for-tablet-landscape {
+        font-size: 16px;
+      }
+      @include for-desktop {
+        font-size: 20px;
+      }
     }
 
     #campsite-prev-type {
@@ -184,8 +280,17 @@
       @include for-phone {
         font-size: 11px;
         line-height: 15px;
+        width: 125px;
       }
       @include for-tablet-portrait {
+        font-size: 12px;
+        line-height: 16px;
+      }
+      @include for-tablet-landscape {
+        font-size: 12px;
+        line-height: 16px;
+      }
+      @include for-desktop {
         font-size: 12px;
         line-height: 16px;
       }
@@ -199,15 +304,22 @@
       text-align: right;
       margin: 0;
       position: absolute;
-      right: 10px;
+      right: 0;
       bottom: 0;
       @include for-phone {
         font-size: 17px;
         // margin-right: 10px;
       }
       @include for-tablet-portrait {
+        font-size: 23px;
+      }
+      @include for-tablet-landscape {
         font-size: 21px;
+      }
+      @include for-desktop {
+        font-size: 23px;
       }
     }
   }
 }
+
