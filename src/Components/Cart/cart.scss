@@ -55,6 +55,14 @@
   }
 }
 
+.view-campgrounds-btn{
+    @include green-btn;
+    font-size: 13px;
+    margin-top: 50px;
+
+}
+
+
 .cart-container {
   background-color: white;
 }
@@ -67,7 +75,7 @@
 
 .cart-divider-lines {
   height: 2px;
-  background-color: $auth-input-color;
+  background-color: $input-color;
   margin: 0 auto;
   border: none;
 
@@ -108,6 +116,7 @@
   }
   @include for-desktop {
     width: 1040px;
+    height: 230px;
   }
 }
 
@@ -125,11 +134,11 @@
   }
   @include for-tablet-landscape {
     width: 190px;
-    height: 155px;
+    height: 175px;
   }
   @include for-desktop {
     width: 220px;
-    height: 180px;
+    height: 200px;
   }
 }
 
@@ -148,10 +157,14 @@
     left: 190px;
   }
   @include for-tablet-landscape {
-    width: 840px;
+    width: 220px;
+    top: 0;
+    left: 210px;
   }
   @include for-desktop {
     width: 1040px;
+    top: 0;
+    left: 240px;
   }
 }
 
@@ -164,11 +177,15 @@
 
   @include for-phone {
     font-size: 13px;
+    line-height: 13px;
   }
   @include for-tablet-portrait {
     font-size: 13px;
+    line-height: 13px;
   }
   @include for-tablet-landscape {
+    font-size: 13px;
+    line-height: 13px;
   }
   @include for-desktop {
   }
@@ -189,7 +206,9 @@
   @include for-tablet-landscape {
   }
   @include for-desktop {
-  }
+    font-size: 22px;
+    line-height: 26px;  
+}
 }
 
 .cart-cs-name {
@@ -207,7 +226,9 @@
   @include for-tablet-landscape {
   }
   @include for-desktop {
-  }
+    margin: -3px 0;
+    font-size: 17px;
+    line-height: 19px;}
 }
 
 .cart-cs-type {
@@ -247,9 +268,15 @@
     left: 430px;
   }
   @include for-tablet-landscape {
+    font-size: 13px;
+    top: 0;
+    left: 500px;
   }
   @include for-desktop {
-  }
+    font-size: 13px;
+    top: 0;
+    left: 600px;  
+}
 }
 
 #cart-start-date {
@@ -264,6 +291,7 @@
     font-size: 14px;
   }
   @include for-tablet-landscape {
+    font-size: 15px;
   }
   @include for-desktop {
   }
@@ -287,9 +315,14 @@
     left: 430px;
   }
   @include for-tablet-landscape {
+    font-size: 13px;
+    top: 0;
+    left: 650px;
   }
   @include for-desktop {
-  }
+    font-size: 13px;
+    top: 0;
+    left: 800px;}
 }
 
 #cart-duration {
@@ -304,6 +337,7 @@
     font-size: 14px;
   }
   @include for-tablet-landscape {
+    font-size: 15px;
   }
   @include for-desktop {
   }
@@ -325,9 +359,12 @@
     font-size: 12px;
     top: 100px;
     right: 0;
-}
-  @include for-tablet-landscape {
   }
+  @include for-tablet-landscape {
+    font-size: 13px;
+    top: 0;
+    right: 0;  
+}
   @include for-desktop {
   }
 }
@@ -343,7 +380,7 @@
   }
   @include for-tablet-portrait {
     font-size: 20px;
-}
+  }
   @include for-tablet-landscape {
   }
   @include for-desktop {
@@ -380,8 +417,8 @@
 .cart-date-input {
   @include edit-input;
   margin-top: 3px;
-//   padding: 5px 0 5px 15px;
-//   width: 110px;
+  //   padding: 5px 0 5px 15px;
+  //   width: 110px;
 
   @include for-phone {
     padding: 5px 0 5px 15px;
@@ -396,7 +433,6 @@
   @include for-desktop {
   }
 }
-
 
 .cart-duration-input {
   @include edit-input;
@@ -457,8 +493,8 @@
   }
   @include for-tablet-portrait {
     bottom: 20px;
-    right: 80px;  
-}
+    right: 80px;
+  }
   @include for-tablet-landscape {
   }
   @include for-desktop {
@@ -495,8 +531,19 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 300px;
   margin: 0 auto;
+  @include for-phone {
+    width: 300px;
+  }
+  @include for-tablet-portrait {
+    width: 540px;
+  }
+  @include for-tablet-landscape {
+    width: 840px;
+  }
+  @include for-desktop {
+    width: 1040px;
+  }
 }
 
 .subtotal-text {
@@ -535,8 +582,19 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 300px;
   margin: 0 auto;
+  @include for-phone {
+    width: 300px;
+  }
+  @include for-tablet-portrait {
+    width: 540px;
+  }
+  @include for-tablet-landscape {
+    width: 840px;
+  }
+  @include for-desktop {
+    width: 1040px;
+  }
 }
 
 .stripe-checkout-btn {

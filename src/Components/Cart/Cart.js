@@ -124,7 +124,7 @@ const Cart = props => {
                         <div className='empty-cart-container'>
                             <h2 className='empty-cart-header-text'>Your cart is empty...</h2>
                             <h5 className='empty-cart-sub-head-text'>Please add a campsite to your cart.</h5>
-                            <button onClick={() => props.history.push('/campgrounds')}>View Campgrounds</button>
+                            <button className='view-campgrounds-btn' onClick={() => props.history.push('/campgrounds')}>View Campgrounds</button>
                         </div>
                     )}
                 
