@@ -115,6 +115,8 @@ const Campsite = props => {
                   className="duration-input"
                   value={durationInput}
                   type="number"
+                  min='1'
+                  step="1"
                   onChange={e => setDurationInput(e.target.value)}
                 />
               </div>

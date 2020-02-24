@@ -115,11 +115,12 @@
   font-family: $sub-heading-font;
   font-weight: 600;
   font-style: normal;
-  letter-spacing: 0.08em;
+  // letter-spacing: 0.08em;
   border: none;
   border-radius: 5px;
   color: $input-text-color;
   background-color: $input-color;
+  overflow: visible;
 }
 
 // @include for-phone{
