@@ -46,13 +46,12 @@
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.07em;
 }
 
 // @mixin preview-park-name {
 //   font-family: montserrat, sans-serif;
 // }
-
 
 @mixin mobile-park-name-heading {
 }
@@ -105,12 +104,22 @@
   border-radius: 5px;
 }
 
-
 // small product backgrounds
-@mixin product-backgrounds{
+@mixin product-backgrounds {
   background: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.192);
+}
 
+// inputs
+@mixin edit-input {
+  font-family: $sub-heading-font;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  border: none;
+  border-radius: 5px;
+  color: $input-text-color;
+  background-color: $input-color;
 }
 
 // @include for-phone{
@@ -125,12 +134,6 @@
 // @include for-desktop{
 
 // };
-
-
-
-
-
-
 
 @mixin featured-campgrounds {
   margin: auto;
@@ -166,7 +169,7 @@
   }
 }
 
-@mixin campground-container{
+@mixin campground-container {
   @include for-phone {
     width: 162px;
     height: 215px;
@@ -192,7 +195,6 @@
   }
 }
 
-
 @mixin campground-preview-img {
   object-fit: cover;
   @include for-phone {
@@ -213,7 +215,6 @@
   @include for-desktop {
   }
 }
-
 
 @mixin preview-park-name {
   font-family: $sub-heading-font;

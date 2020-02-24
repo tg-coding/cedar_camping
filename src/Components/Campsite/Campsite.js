@@ -88,32 +88,7 @@ const Campsite = props => {
     return (
       <div key={i} className="campsite-container">
         <div className="campsite-primary-info-container">
-          <div className="carousel-container" style={styles}>
-            <Carousel>
-              <div>
-                <img src={campsite_primary_img_url} alt={campsite_name} />
-                <p className="legend">{campsite_primary_img_credit}</p>
-              </div>
-              {null ? null : (
-                <div>
-                  <img src={campsite_img_url} />
-                  <p className="legend">{campsite_img_credit}</p>
-                </div>
-              )}
-              {null ? null : (
-                <div>
-                  <img src={campsite_img_url_2} />
-                  <p className="legend">{campsite_img_credit_2}</p>
-                </div>
-              )}
-              {null ? null : (
-                <div>
-                  <img src={campsite_img_url_3} />
-                  <p className="legend">{campsite_img_credit_3}</p>
-                </div>
-              )}
-            </Carousel>
-          </div>
+          
 
           <div className="campsite-primary-info">
             <h5>{park_name}</h5>
@@ -250,6 +225,32 @@ const Campsite = props => {
             </div>
           </div>
         </div>
+        <div className="carousel-container" style={styles}>
+            <Carousel>
+              <div>
+                <img src={campsite_primary_img_url} alt={campsite_name} />
+                <p className="legend">{campsite_primary_img_credit}</p>
+              </div>
+              {null ? null : (
+                <div>
+                  <img src={campsite_img_url} />
+                  <p className="legend">{campsite_img_credit}</p>
+                </div>
+              )}
+              {null ? null : (
+                <div>
+                  <img src={campsite_img_url_2} />
+                  <p className="legend">{campsite_img_credit_2}</p>
+                </div>
+              )}
+              {null ? null : (
+                <div>
+                  <img src={campsite_img_url_3} />
+                  <p className="legend">{campsite_img_credit_3}</p>
+                </div>
+              )}
+            </Carousel>
+          </div>
       </div>
     );
   });

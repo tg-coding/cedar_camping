@@ -6,6 +6,7 @@ import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import stripe from '../../stripeKey';
+import './cart.scss';
 
 const Cart = props => {
     // const [cart, setCart] = useState([])
@@ -78,71 +79,83 @@ const Cart = props => {
 
 
     return(
-        <div>
+        <div className='cart-container'>
 
             {props.user.customer_order_id ? (
 
                 <div>
                     {props.cart.length ? (
                         <div>
-                        <h2>My Cart</h2>
-                        <hr/>
-                        <div className='cart-header-row'>
-                            <p className='cart-header-row-item'>Campsite</p>
-                            <p className='cart-header-row-item'>Description</p>
-                            <p className='cart-header-row-item'>Start Date</p>
-                            <p className='cart-header-row-item'>Days</p>
-                            <p className='cart-header-row-item'>Total</p>
-                        </div>
+                        <h2 className='my-cart'>My Cart</h2>
+                        <hr className='cart-divider-lines'/>
                         {props.cart && props.cart.map((cart, campsite_id) => {
-                            const {campsite_primary_img_url, park_name, campground_name, campsite_name, start_date, duration, campsite_price, order_item_id} = cart
+                            const {campsite_primary_img_url, park_name, campground_name, campsite_name, campsite_type, start_date, duration, campsite_price, order_item_id} = cart
                             const total = duration * +campsite_price
-                            
-                            console.log(cart)
+                            const formattedDate = (new Date(start_date)).toString();
+
                             return(
-                                <div key={campsite_id} className='cart-container'>
-                                    <img src={campsite_primary_img_url} alt={campsite_name} />
+                                <div key={campsite_id} className='my-cart-container'>
+                                    <img className='cart-campsite-img' src={campsite_primary_img_url} alt={campsite_name} />
                                     <div className='cart-campsite-description'>
-                                        <h3>{park_name}</h3>
-                                        <h2>{campground_name}</h2>
-                                        <p>{campsite_name}</p>
+                                        <h3 className='cart-park-name'>{park_name}</h3>
+                                        <h2 className='cart-cg-name'>{campground_name}</h2>
+                                        <p className='cart-cs-name'>Site: {campsite_name}</p>
+                                        <p className='cart-cs-type'>Type: {campsite_type}</p>
                                     </div>
                                      {editing ? (
                                         <div>
-                                            <input
-                                            name='start-date-input'
-                                            className='date-input'
-                                            value={startDateInput}
-                                            placeholder={start_date.slice(0,10)}
-                                            type='date'
-                                            onChange={(e) => setStartDateInput(e.target.value)}
-                                        />
-                                            <input
-                                                className='duration-input'
-                                                value={durationInput}
-                                                placeholder={duration}
-                                                type='number'
-                                                onChange={(e) => setDurationInput(e.target.value)}
-                                            />
-                                            <button onClick={() => submitEdit(order_item_id, startDateInput, durationInput)}>Submit</button>
-                                            <button onClick={edit}>Cancel</button>
+                                            <div className='cart-start-date-container'>
+                                                Start Date<br/>
+                                                <input
+                                                    name='start-date-input'
+                                                    className='cart-date-input'
+                                                    value={startDateInput}
+                                                    placeholder={start_date.slice(0,10)}
+                                                    type='date'
+                                                    onChange={(e) => setStartDateInput(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className='cart-duration-container'>
+                                                Days<br/>
+                                                <input
+                                                    className='cart-duration-input'
+                                                    value={durationInput}
+                                                    placeholder={duration}
+                                                    type='number'
+                                                    onChange={(e) => setDurationInput(e.target.value)}
+                                                />
+                                            </div>
+                                            <button className='cart-submit-btn' onClick={() => submitEdit(order_item_id, startDateInput, durationInput)}>Submit</button>
+                                            <button className='cart-cancel-btn' onClick={edit}>Cancel</button>
     
                                         </div>
                                         
                         
                                      ) : (
                                         <div>
-                                            <h3>{start_date.slice(0,10)}</h3>
-                                            <h3>{duration}</h3>
-                                            <button onClick={edit}>Edit</button>
+                                            <div className='cart-start-date-container'>
+                                                Start Date<br/>
+                                                {/* <h3 id='cart-start-date'>{start_date.slice(0,10)}</h3> */}
+                                                <h3 id='cart-start-date'>{formattedDate.slice(4,15)}</h3>
+                                            </div>
+                                            <div className='cart-duration-container'>
+                                                Days<br/>
+                                                <h3 id='cart-duration'>{duration}</h3>
+                                            </div>
+                                            <button className='cart-edit-btn' onClick={edit}>Edit</button>
+                                            <div className='cart-total-container'>
+                                                Total<br/>
+                                                <h5 className='cart-total'>${total.toFixed(2)}</h5>
+                                            </div>
                                         </div>
                                      )}
-                                    <h2>${total.toFixed(2)}</h2>
-                                    <button className='remove-btn' onClick={() => remove(order_item_id)}>x</button>
+                                    
+                                    <button className='cart-remove-btn' onClick={() => remove(order_item_id)}>x</button>
+                                    <hr className='cart-divider-lines' id='bottom-cart-divider-line'/>
                                 </div>
                             )
                         })}
-                        <hr/>
+                        
                         <div className='subtotal-container'>
                             <p className='subtotal-text'>Subtotal</p>
                             <h2 className='subtotal-total'>
@@ -158,23 +171,18 @@ const Cart = props => {
                         
                     </div>
                     ):(
-                        <div>
-                            <h2>Your cart is empty...</h2>
-                            <h5>Please add a campsite to your cart.</h5>
+                        <div className='empty-cart-container'>
+                            <h2 className='empty-cart-header-text'>Your cart is empty...</h2>
+                            <h5 className='empty-cart-sub-head-text'>Please add a campsite to your cart.</h5>
                             <button onClick={() => props.history.push('/campgrounds')}>View Campgrounds</button>
                         </div>
                     )}
                 
                 </div>
             ) : (
-                <div>
-                    
-                        
-                        <div>
-                            <h2>You're not logged in...</h2>
-                            <h5>Please login to view your cart.</h5>
-                        </div>
-
+                <div className='empty-cart-container'>
+                    <h2 className='empty-cart-header-text'>You're not logged in...</h2>
+                    <h5 className='empty-cart-sub-head-text'>Please login to view your cart.</h5>
                 </div>
              )} 
         </div>
