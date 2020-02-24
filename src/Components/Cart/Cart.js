@@ -10,7 +10,7 @@ import stripe from '../../stripeKey';
 import './cart.scss';
 
 const Cart = props => {
-    // const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([])
     
     // const [editing, setEditing] = useState(false)
 
@@ -63,13 +63,6 @@ const Cart = props => {
     // }
 
 
-    
-
-    
-    
-    
-
-
     const cartTotal = props.cart.reduce((total, current) => {
         return total + (current.campsite_price * current.duration)
     }, 0 )
@@ -117,7 +110,6 @@ const Cart = props => {
                             />
                         </div>
                         
-                                    <hr className='cart-divider-lines' id='bottom-cart-divider-line'/>
 
                     </div>
                     ):(

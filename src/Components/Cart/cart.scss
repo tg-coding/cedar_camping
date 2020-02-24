@@ -65,6 +65,18 @@
 
 .cart-container {
   background-color: white;
+  @include for-phone {
+    min-height: calc(100vh - 120px);
+  }
+  @include for-tablet-portrait {
+    min-height: calc(100vh - 120px);
+  }
+  @include for-tablet-landscape {
+    min-height: calc(100vh - 140px);
+  }
+  @include for-desktop {
+    min-height: calc(100vh - 140px);
+  }
 }
 
 .my-cart {
@@ -74,10 +86,7 @@
 }
 
 .cart-divider-lines {
-  height: 2px;
-  background-color: $input-color;
-  margin: 0 auto;
-  border: none;
+  @include divider-lines;
 
   @include for-phone {
     width: 300px;

@@ -68,7 +68,7 @@ console.log(campsites)
         const {campsite_id, campsite_primary_img_url, park_name, campground_name, campsite_name, campsite_type, campsite_price} = campsite
         const campsitePrice = Math.round(campsite_price)
         return (
-            <div key={i} className='campsite-container' onClick={() => props.history.push(`/campsite/${campsite_id}`)}>
+            <div key={i} className='campsite-prev-container' onClick={() => props.history.push(`/campsite/${campsite_id}`)}>
                 <img id='campsite-preview-img' src={campsite_primary_img_url} alt={campsite_name} />
                 <div className='campsite-preview-info'>
                     <p id='campsite-prev-park-name'>{park_name}</p>

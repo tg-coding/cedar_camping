@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import axios from "axios";
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+import googleMap from "../../googleMap";
 import "./carousel.scss";
 import "./campsite.scss";
 
@@ -46,6 +48,31 @@ const Campsite = props => {
   };
   console.log(campsite);
 
+  const mapStyles = {
+    width: "100%",
+    maxWidth: "1100px",
+    height: "300px",
+    overflow: "hidden"
+  };
+
+  const campsiteMap = campsite.map((campsite, i) => {
+    const { campsite_latitude, campsite_longitude } = campsite;
+    return (
+      <div key={i} className="google-map-campsite-container">
+        <Map
+          google={props.google}
+          zoom={8}
+          style={mapStyles}
+          initialCenter={{ lat: campsite_latitude, lng: campsite_longitude }}
+        >
+          <Marker
+            position={{ lat: campsite_latitude, lng: campsite_longitude }}
+          />
+        </Map>
+      </div>
+    );
+  });
+
   const mappedCampsite = campsite.map((campsite, i) => {
     const {
       campsite_id,
@@ -80,179 +107,190 @@ const Campsite = props => {
       campsite_img_credit_3
     } = campsite;
 
-    let styles = {
-      margin: "auto",
-      width: "500px"
-    };
-
     return (
-      <div key={i} className="campsite-container">
-        <div className="campsite-primary-info-container">
-          
-
-          <div className="campsite-primary-info">
-            <h5>{park_name}</h5>
-            <h2>{campground_name}</h2>
-            <div className="campsite-name-type-container">
-              <h3># {campsite_name}</h3>
-              <h3>Type: {campsite_type}</h3>
-            </div>
-            <p className="campsite-price">{campsite_price}</p>
-            <div className="campsite-inputs">
-              <div className="input-container">
-                <p className="input-labels">Start Date</p>
-                <input
-                  className="date-input"
-                  value={startDateInput}
-                  placeholder="YYYY-MM-DD"
-                  type="date"
-                  onChange={e => setStartDateInput(e.target.value)}
-                />
-              </div>
-              <div className="input-container">
-                <p className="input-labels">Days</p>
-                <input
-                  className="duration-input"
-                  value={durationInput}
-                  type="number"
-                  min='1'
-                  step="1"
-                  onChange={e => setDurationInput(e.target.value)}
-                />
-              </div>
-              <button
-                onClick={() =>
-                  addToCart(
-                    campsite_id,
-                    startDateInput,
-                    durationInput,
-                    campsite_price
-                  )
-                }
-              >
-                Add to Cart
-              </button>
-            </div>
-            <div className="attributes-container">
-              <div className="attributes-row">
-                <div className="coordinate-attribute">
-                  Latitude
-                  <br />
-                  <strong>{campsite_latitude}</strong>
-                </div>
-                <div className="coordinate-attribute">
-                  Longitude
-                  <br />
-                  <strong>{campsite_longitude}</strong>
-                </div>
-              </div>
-              <div className="attributes-row">
-                <div className="attribute">
-                  Check-in
-                  <br />
-                  <strong>{checkin_time}</strong>
-                </div>
-                <div className="attribute">
-                  Check-out
-                  <br />
-                  <strong>{checkout_time}</strong>
-                </div>
-                <div className="attribute">
-                  Campfire Allowed
-                  <br />
-                  <strong>{campfire_allowed}</strong>
-                </div>
-                <div className="attribute">
-                  Fire Pit
-                  <br />
-                  <strong>{fire_pit}</strong>
-                </div>
-              </div>
-              <div className="attributes-row">
-                <div className="attribute">
-                  Grill
-                  <br />
-                  <strong>{grill}</strong>
-                </div>
-                <div className="attribute">
-                  Picnic Table
-                  <br />
-                  <strong>{picnic_table}</strong>
-                </div>
-                <div className="attribute">
-                  Electric Hookups
-                  <br />
-                  <strong>{electric_hookups}</strong>
-                </div>
-                <div className="attribute">
-                  Sewer Hookups
-                  <br />
-                  <strong>{sewer_hookups}</strong>
-                </div>
-              </div>
-              <div className="attributes-row">
-                <div className="attribute">
-                  Pets Allowed
-                  <br />
-                  <strong>{pets_allowed}</strong>
-                </div>
-                <div className="attribute">
-                  Water
-                  <br />
-                  <strong>{water}</strong>
-                </div>
-                <div className="attribute">
-                  Showers
-                  <br />
-                  <strong>{showers}</strong>
-                </div>
-                <div className="attribute">
-                  Toilets
-                  <br />
-                  <strong>{toilets}</strong>
-                </div>
-              </div>
-              <div className="attributes-row">
-                <div className="attribute">
-                  Site Width
-                  <br />
-                  <strong>{site_width}</strong>
-                </div>
-                <div className="attribute">
-                  Site Length
-                  <br />
-                  <strong>{site_length}</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="carousel-container" style={styles}>
+      <div key={i} className="cs-container">
+        <div className="cs-primary-info-container">
+          <div className="carousel-container">
             <Carousel>
-              <div>
-                <img src={campsite_primary_img_url} alt={campsite_name} />
+              <div className="carousel-hero">
+                <img
+                  className="carousel-hero-img"
+                  src={campsite_primary_img_url}
+                  alt={campsite_name}
+                />
                 <p className="legend">{campsite_primary_img_credit}</p>
               </div>
               {null ? null : (
-                <div>
+                <div className="carousel-hero">
                   <img src={campsite_img_url} />
                   <p className="legend">{campsite_img_credit}</p>
                 </div>
               )}
               {null ? null : (
-                <div>
+                <div className="carousel-hero">
                   <img src={campsite_img_url_2} />
                   <p className="legend">{campsite_img_credit_2}</p>
                 </div>
               )}
               {null ? null : (
-                <div>
+                <div className="carousel-hero">
                   <img src={campsite_img_url_3} />
                   <p className="legend">{campsite_img_credit_3}</p>
                 </div>
               )}
             </Carousel>
           </div>
+
+          <div className="cs-primary-info">
+            <h5 className="cs-park-name">{park_name}</h5>
+            <h2 className="cs-cg-name">{campground_name}</h2>
+            <h3 className="cs-name">Site: {campsite_name}</h3>
+            <h3 className="cs-type">Type: {campsite_type}</h3>
+            <div className="cs-price-container">
+              <h5 id="cs-price">${campsite_price} </h5>
+              per night
+            </div>
+            <hr className="cs-line" id="line1" />
+          </div>
+          <div className="cs-inputs">
+            <div className="cs-input-start-date">
+              Start Date
+              <input
+                className="cs-date-input"
+                value={startDateInput}
+                placeholder="YYYY-MM-DD"
+                type="date"
+                onChange={e => setStartDateInput(e.target.value)}
+              />
+            </div>
+            <div className="cs-input-duration">
+              Days
+              <input
+                className="cs-days-input"
+                value={durationInput}
+                type="number"
+                min="1"
+                step="1"
+                onChange={e => setDurationInput(e.target.value)}
+              />
+            </div>
+            <button
+              className="reserve-btn"
+              onClick={() =>
+                addToCart(
+                  campsite_id,
+                  startDateInput,
+                  durationInput,
+                  campsite_price
+                )
+              }
+            >
+              Reserve
+              <br />
+              Campground
+            </button>
+            <hr className="cs-line" id="line2" />
+          </div>
+          <div className="cs-attributes-container">
+            <div className="cs-attributes-row">
+              <div className="cs-coordinate-attribute">
+                Latitude
+                <br />
+                <strong>{campsite_latitude}</strong>
+              </div>
+              <div className="cs-coordinate-attribute">
+                Longitude
+                <br />
+                <strong>{campsite_longitude}</strong>
+              </div>
+            </div>
+            <hr className="cs-line" id="attribute-line" />
+            <div className="cs-attributes-row">
+              <div className="cs-attribute">
+                Check-in
+                <br />
+                <strong>{checkin_time}</strong>
+              </div>
+              <div className="cs-attribute">
+                Check-out
+                <br />
+                <strong>{checkout_time}</strong>
+              </div>
+              <div className="cs-attribute">
+                Campfire Allowed
+                <br />
+                <strong>{campfire_allowed}</strong>
+              </div>
+              <div className="cs-attribute">
+                Fire Pit
+                <br />
+                <strong>{fire_pit}</strong>
+              </div>
+            </div>
+            <hr className="cs-line" id="attribute-line" />
+
+            <div className="cs-attributes-row">
+              <div className="cs-attribute">
+                Grill
+                <br />
+                <strong>{grill}</strong>
+              </div>
+              <div className="cs-attribute">
+                Picnic Table
+                <br />
+                <strong>{picnic_table}</strong>
+              </div>
+              <div className="cs-attribute">
+                Electric Hookups
+                <br />
+                <strong>{electric_hookups}</strong>
+              </div>
+              <div className="cs-attribute">
+                Sewer Hookups
+                <br />
+                <strong>{sewer_hookups}</strong>
+              </div>
+            </div>
+            <hr className="cs-line" id="attribute-line" />
+
+            <div className="cs-attributes-row">
+              <div className="cs-attribute">
+                Pets Allowed
+                <br />
+                <strong>{pets_allowed}</strong>
+              </div>
+              <div className="cs-attribute">
+                Water
+                <br />
+                <strong>{water}</strong>
+              </div>
+              <div className="cs-attribute">
+                Showers
+                <br />
+                <strong>{showers}</strong>
+              </div>
+              <div className="cs-attribute">
+                Toilets
+                <br />
+                <strong>{toilets}</strong>
+              </div>
+            </div>
+            <hr className="cs-line" id="attribute-line" />
+            <div className="cs-attributes-row">
+              <div className="cs-attribute">
+                Site Width
+                <br />
+                <strong>{site_width}</strong>
+              </div>
+              <div className="cs-attribute">
+                Site Length
+                <br />
+                <strong>{site_length}</strong>
+              </div>
+            </div>
+          </div>
+          <div className="cs-map-container">{campsiteMap}</div>
+        </div>
       </div>
     );
   });
@@ -264,4 +302,8 @@ function mapStateToProps(state) {
   return { user: state.userReducer.user };
 }
 
-export default connect(mapStateToProps)(withRouter(Campsite));
+export default connect(mapStateToProps)(
+  GoogleApiWrapper({
+    apiKey: googleMap.key
+  })(withRouter(Campsite))
+);

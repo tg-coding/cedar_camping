@@ -1,6 +1,349 @@
 @import "../../sass/variables";
 @import "../../sass/mixins";
 
-.carousel-container{
-    position: relative;
+
+
+.cs-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: white;
+  position: relative;
 }
+
+.carousel-container{
+    padding-top: 20px;
+}
+
+.cs-primary-info {
+  text-align: left;
+  @include for-phone {
+    width: 335px;
+  }
+  @include for-tablet-portrait {
+  }
+  @include for-tablet-landscape {
+  }
+  @include for-desktop {
+  }
+}
+
+.cs-park-name {
+  font-family: $sub-heading-font;
+  font-weight: bold;
+  color: $light-gray-text-color;
+  @include for-phone {
+    font-size: 16px;
+  }
+  @include for-tablet-portrait {
+    font-size: 16px;
+  }
+  @include for-tablet-landscape {
+    font-size: 17px;
+  }
+  @include for-desktop {
+    font-size: 18px;
+  }
+}
+
+.cs-cg-name {
+  @include display-font;
+  color: $dark-blue-color;
+  @include for-phone {
+    font-size: 30px;
+    line-height: 32px;
+  }
+  @include for-tablet-portrait {
+    font-size: 30px;
+    line-height: 32px;
+  }
+  @include for-tablet-landscape {
+    font-size: 34px;
+    line-height: 36px;
+  }
+  @include for-desktop {
+    font-size: 34px;
+    line-height: 36px;
+  }
+}
+
+.cs-name{
+    @include sub-heading-font;
+    color: $green-color;
+    @include for-phone {
+        font-size: 19px;
+        line-height: 22px;
+    }
+    @include for-tablet-portrait {
+        font-size: 19px;
+        line-height: 22px;
+    }
+    @include for-tablet-landscape {
+        font-size: 20px;
+        line-height: 23px;
+    }
+    @include for-desktop {
+        font-size: 22px;
+        line-height: 24px;
+    }
+}
+
+.cs-type{
+    font-family: $info-font;
+    color: $light-gray-text-color;
+    font-weight: 600;
+    @include for-phone {
+        font-size: 13px;
+    }
+    @include for-tablet-portrait {
+        font-size: 13px;
+    }
+    @include for-tablet-landscape {
+        font-size: 14px;
+    }
+    @include for-desktop {
+        font-size: 14px;
+    }
+}
+
+.cs-price-container{
+    display: flex;
+    justify-content: baseline;
+    font-family: $info-font;
+    font-weight: 600;
+    color: $green-color;
+    font-size: 14px;
+
+    @include for-phone {
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+#cs-price{
+    @include display-font;
+    color: $green-color;
+    letter-spacing: 0.02em;
+    font-size: 28px;
+    @include for-phone {
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+.cs-inputs{
+    @include for-phone {
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+.cs-input-start-date{
+    @include input-heading-text;
+    @include for-phone {
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+.cs-date-input{
+    @include edit-input;
+    @include for-phone {
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+.cs-input-duration{
+    @include input-heading-text;
+    @include for-phone {
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+.cs-days-input{
+    @include edit-input;
+    @include for-phone {
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+.reserve-btn{
+    @include green-btn;
+    @include for-phone {
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+.cs-attributes-container{
+    font-family: $info-font;
+    color: $attribute-text-color;
+    @include for-phone {
+        width: 335px;
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+.cs-attributes-row{
+    display: flex;
+    justify-content: space-evenly;
+    @include for-phone {
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+.cs-coordinate-attribute{
+    @include for-phone {
+        font-size: 11px;
+    }
+    @include for-tablet-portrait {
+        font-size: 13px;
+    }
+    @include for-tablet-landscape {
+        font-size: 14px;
+    }
+    @include for-desktop {
+        font-size: 14px;
+    }
+}
+
+.cs-attribute{
+    @include for-phone {
+        font-size: 10px;
+    }
+    @include for-tablet-portrait {
+        font-size: 11px;
+    }
+    @include for-tablet-landscape {
+        font-size: 12px;
+    }
+    @include for-desktop {
+        font-size: 12px;
+    }
+}
+
+.cs-line{
+    @include divider-lines;
+
+    @include for-phone {
+
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+#line1{
+    @include for-phone {
+        width: 335px
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+#line2{
+    @include for-phone {
+        width: 335px
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    } 
+}
+
+#attribute-line{
+    @include for-phone {
+        width: 335px
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    } 
+}
+
+.cs-map-container{
+    .google-map-container {
+        height: 300px;
+        width: 100%;
+        max-width: 1100px;
+        margin: 30px auto;
+        overflow: hidden;
+        position: relative;
+      }
+    @include for-phone {
+    }
+    @include for-tablet-portrait {
+    }
+    @include for-tablet-landscape {
+    }
+    @include for-desktop {
+    }
+}
+
+
+
+
+// @include for-phone {
+// }
+// @include for-tablet-portrait {
+// }
+// @include for-tablet-landscape {
+// }
+// @include for-desktop {
+// }

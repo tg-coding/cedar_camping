@@ -22,6 +22,13 @@
   }
 }
 
+@mixin divider-lines {
+  height: 2px;
+  background-color: $input-color;
+  margin: 0 auto;
+  border: none;
+}
+
 // font mixins
 @mixin mobile-heading {
   font-family: ff-market-web, sans-serif;
@@ -53,8 +60,6 @@
 //   font-family: montserrat, sans-serif;
 // }
 
-@mixin mobile-park-name-heading {
-}
 
 // hero images
 @mixin hero-images {
@@ -121,6 +126,25 @@
   color: $input-text-color;
   background-color: $input-color;
   overflow: visible;
+}
+
+
+@mixin input-heading-text{
+  font-family: $sub-heading-font;
+  color: $input-text-color;
+  font-weight: 500;
+  @include for-phone {
+      font-size: 13px;
+  }
+  @include for-tablet-portrait {
+      font-size: 13px;
+  }
+  @include for-tablet-landscape {
+      font-size: 14px;
+  }
+  @include for-desktop {
+      font-size: 14px;
+  }
 }
 
 // @include for-phone{
