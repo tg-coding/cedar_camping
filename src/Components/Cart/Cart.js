@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {getUser} from '../../redux/userReducer';
 import {setCart} from '../../redux/cartReducer';
 import {withRouter} from 'react-router-dom';
+import { store } from 'react-notifications-component';
 import axios from 'axios';
 import CartItems from './CartItems';
 import StripeCheckout from 'react-stripe-checkout';
@@ -35,8 +36,21 @@ const Cart = props => {
             customer_id: props.user.customer_id } )
         .then(res => {
             props.getUser(res.data)
-            alert('Payment Successful');
-            console.log(res.data)
+            // alert('Payment Successful');
+            store.addNotification({
+                title: "Success",
+                message: "Payment Successful",
+                type: "success",
+                insert: "top",
+                container: "top-center",
+                animationIn: ["animated", "fadeIn"],
+                animationOut: ["animated", "fadeOut"],
+                dismiss: {
+                  duration: 5000,
+                  showIcon: true
+                }
+              });
+            
         })
       }
 

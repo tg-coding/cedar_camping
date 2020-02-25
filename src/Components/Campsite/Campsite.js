@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import axios from "axios";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+import { store } from 'react-notifications-component';
 import googleMap from "../../googleMap";
 import "./carousel.scss";
 import "./campsite.scss";
@@ -38,12 +39,49 @@ const Campsite = props => {
           duration: durationInput,
           campsite_price
         })
-        .then(res => {
-          window.alert("Campsite added to cart");
-        })
-        .catch(err => console.log(err));
+        .then(() => {store.addNotification({
+            title: "Success",
+            message: "Campsite added to cart",
+            type: "success",
+            insert: "top",
+            container: "top-center",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+              duration: 5000,
+              showIcon: true
+            }
+          });
+        }
+        )
+        .catch((err) => {store.addNotification({
+          title: "Error",
+          message: err,
+          type: "danger",
+          insert: "top",
+          container: "top-center",
+          animationIn: ["animated", "fadeIn"],
+          animationOut: ["animated", "fadeOut"],
+          dismiss: {
+            duration: 5000,
+            showIcon: true
+          }
+        });
+      });;
     } else {
-      window.alert("Please login or create an account");
+      store.addNotification({
+        title: "Login",
+        message: "Please login or create an account",
+        type: "info",
+        insert: "top",
+        container: "top-center",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: {
+          duration: 5000,
+          showIcon: true
+        }
+      });
     }
   };
   console.log(campsite);

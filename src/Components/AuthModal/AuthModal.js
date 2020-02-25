@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { getUser } from "../../redux/userReducer";
 import axios from "axios";
 import logo from "../../logo/great-outdoors-logo_gradient.svg";
+import { store } from 'react-notifications-component';
+
 import "./authModal.scss";
 
 const AuthModal = props => {
@@ -13,15 +15,43 @@ const AuthModal = props => {
 
   const toggleLogin = () => setLoginToggle(!loginToggle);
 
-  const login = () => {
-    axios
-      .post("/auth/login", { email: emailInput, password: passInput })
-      .then(res => {
-        props.getUser(res.data);
-        props.toggleFn();
-      })
-      .catch(err => alert(err.response.request.response));
-  };
+ 
+    
+  
+
+    const login = () => {
+      axios
+        .post("/auth/login", { email: emailInput, password: passInput })
+        .then(res => {
+          props.getUser(res.data);
+          props.toggleFn();
+        })
+        .catch((err) => {store.addNotification({
+          title: "Error",
+          message: err.response.request.response,
+          type: "danger",
+          insert: "top",
+          container: "top-center",
+          animationIn: ["animated", "fadeIn"],
+          animationOut: ["animated", "fadeOut"],
+          dismiss: {
+            duration: 5000,
+            showIcon: true
+          }
+        });
+      });
+    };
+
+
+  // const login = () => {
+  //   axios
+  //     .post("/auth/login", { email: emailInput, password: passInput })
+  //     .then(res => {
+  //       props.getUser(res.data);
+  //       props.toggleFn();
+  //     })
+  //     .catch(err => alert(err.response.request.response));
+  // };
 
   const register = () => {
     axios
@@ -31,7 +61,20 @@ const AuthModal = props => {
         password: passInput
       })
       .then(res => props.getUser(res.data))
-      .catch(err => alert(err.response.request.response));
+      .catch((err) => {store.addNotification({
+        title: "Error",
+        message: err.response.request.response,
+        type: "danger",
+        insert: "top",
+        container: "top-center",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: {
+          duration: 5000,
+          showIcon: true
+        }
+      });
+    })
   };
 
   return (
