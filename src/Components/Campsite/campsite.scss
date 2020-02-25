@@ -9,10 +9,58 @@
   position: relative;
 }
 
-.carousel-container {
-  padding-top: 30px;
+.cs-major-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  @include for-tablet-landscape {
+    width: 840px;
+    height: 420px;
+  }
+  @include for-desktop {
+    width: 1040px;
+    height: 490px;
+  }
 }
 
+.cs-primary-info-inputs-btn-container {
+  display: flex;
+  flex-direction: column;
+  @include for-tablet-landscape {
+    width: 430px;
+  }
+  @include for-desktop {
+    width: 525px;
+  }
+}
+
+.cs-primary-info-container {
+  padding-top: 30px;
+
+  @include for-phone {
+  }
+  @include for-tablet-portrait {
+    display: flex;
+    justify-content: space-between;
+    width: 540px;
+    height: 230px;
+    margin: 0 auto;
+  }
+  @include for-tablet-landscape {
+    display: flex;
+    justify-content: space-between;
+    width: 840px;
+    height: 420px;
+    margin: 0 auto;
+  }
+  @include for-desktop {
+    display: flex;
+    justify-content: space-between;
+    width: 1040px;
+    height: 490px;
+    margin: 0 auto;
+  }
+}
 .cs-primary-info {
   text-align: left;
   @include for-phone {
@@ -20,10 +68,17 @@
     margin: 20px auto;
   }
   @include for-tablet-portrait {
+    width: 248px;
+    position: relative;
   }
   @include for-tablet-landscape {
+    width: 430px;
+    position: relative;
   }
   @include for-desktop {
+    width: 525px;
+    position: relative;
+
   }
 }
 
@@ -94,7 +149,7 @@
   font-family: $info-font;
   color: $light-gray-text-color;
   font-weight: 600;
-  margin: 3px 0;
+  margin: 8px 0;
   @include for-phone {
     font-size: 13px;
   }
@@ -121,8 +176,13 @@
   @include for-phone {
   }
   @include for-tablet-portrait {
+    position: absolute;
+    bottom: 15px;
   }
   @include for-tablet-landscape {
+    position: relative;
+
+    margin-top: 25px;
   }
   @include for-desktop {
   }
@@ -132,10 +192,11 @@
   color: $green-color;
   letter-spacing: 0.02em;
   font-size: 28px;
-  margin: 10px 5px 25px 0;
   @include for-phone {
+    margin: 10px 5px 25px 0;
   }
   @include for-tablet-portrait {
+    margin: 10px 5px 0 0;
   }
   @include for-tablet-landscape {
   }
@@ -143,8 +204,35 @@
   }
 }
 
-.cs-inputs {
+.cs-input-btn-container {
   @include for-phone {
+  }
+  @include for-tablet-portrait {
+    width: 540px;
+    margin: 20px auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+  @include for-tablet-landscape {
+    width: 430px;
+    margin: 20px auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+  @include for-desktop {
+    width: 525px;
+
+  }
+}
+
+.cs-inputs {
+  display: flex;
+  text-align: left;
+  @include for-phone {
+    width: 335px;
+    margin: 15px auto;
   }
   @include for-tablet-portrait {
   }
@@ -168,11 +256,18 @@
 
 .cs-date-input {
   @include edit-input;
+  height: 25px;
+  margin-top: 5px;
+  padding: 0 0 0 10px;
   @include for-phone {
   }
   @include for-tablet-portrait {
+    width: 170px;
+    height: 40px;
   }
   @include for-tablet-landscape {
+    width: 150px;
+    height: 40px;
   }
   @include for-desktop {
   }
@@ -180,6 +275,7 @@
 
 .cs-input-duration {
   @include input-heading-text;
+  margin-left: 20px;
   @include for-phone {
   }
   @include for-tablet-portrait {
@@ -192,9 +288,31 @@
 
 .cs-days-input {
   @include edit-input;
+  height: 25px;
+  margin-top: 5px;
+  padding: 0 0 0 10px;
+  width: 45px;
   @include for-phone {
   }
   @include for-tablet-portrait {
+    width: 80px;
+    height: 40px;
+  }
+  @include for-tablet-landscape {
+    width: 60px;
+  }
+  @include for-desktop {
+  }
+}
+
+.reserve-btn-container {
+  display: flex;
+  @include for-phone {
+    width: 335px;
+    margin: 15px auto;
+  }
+  @include for-tablet-portrait {
+    margin: 0px;
   }
   @include for-tablet-landscape {
   }
@@ -205,26 +323,59 @@
 .reserve-btn {
   @include green-btn;
   @include for-phone {
+    margin-bottom: 10px;
+  }
+  @include for-tablet-portrait {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  @include for-tablet-landscape {
+    font-size: 12px;
+
+  }
+  @include for-desktop {
+      font-size: 12px;
+  }
+}
+
+.cs-attributes-map-container {
+  @include for-phone {
   }
   @include for-tablet-portrait {
   }
   @include for-tablet-landscape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 840px;
+    margin: 10px auto 0 auto;
   }
   @include for-desktop {
+
+    width: 1040px;
+    margin: 10px auto 0 auto;
   }
 }
 
 .cs-attributes-container {
   font-family: $info-font;
   color: $attribute-text-color;
+  margin: 25px auto 0 auto;
+
   @include for-phone {
     width: 335px;
   }
   @include for-tablet-portrait {
+    width: 460px;
   }
   @include for-tablet-landscape {
+    width: 440px;
+    margin: 0;
   }
   @include for-desktop {
+    width: 480px;
+
   }
 }
 
@@ -243,10 +394,12 @@
 
 .cs-coordinate-attribute {
   @include for-phone {
-    font-size: 11px;
+    font-size: 13px;
+    padding-bottom: 10px;
   }
   @include for-tablet-portrait {
     font-size: 13px;
+    padding-bottom: 10px;
   }
   @include for-tablet-landscape {
     font-size: 14px;
@@ -258,10 +411,12 @@
 
 .cs-attribute {
   @include for-phone {
-    font-size: 10px;
+    font-size: 12px;
+    padding: 10px 0;
   }
   @include for-tablet-portrait {
-    font-size: 11px;
+    font-size: 12px;
+    padding: 10px 0;
   }
   @include for-tablet-landscape {
     font-size: 12px;
@@ -289,6 +444,9 @@
     width: 335px;
   }
   @include for-tablet-portrait {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
   }
   @include for-tablet-landscape {
   }
@@ -301,10 +459,14 @@
     width: 335px;
   }
   @include for-tablet-portrait {
+    width: 540px;
   }
   @include for-tablet-landscape {
+    width: 840px;
+    margin-top: 60px;
   }
   @include for-desktop {
+    width: 1040px;
   }
 }
 
@@ -321,21 +483,30 @@
 }
 
 .cs-map-container {
-  .google-map-container {
-    height: 300px;
-    width: 100%;
-    max-width: 1100px;
-    margin: 30px auto;
-    overflow: hidden;
-    position: relative;
-  }
+  padding: 25px 0 30px 0;
+  height: 300px;
+  // width: 100%;
+  max-width: 1100px;
+  overflow: hidden;
+  position: relative;
+
   @include for-phone {
+    width: 335px;
+    margin: 0 auto;
   }
   @include for-tablet-portrait {
+    width: 540px;
+    margin: 0 auto;
   }
   @include for-tablet-landscape {
+    width: 360px;
+    height: 340px;
+    margin: 0;
+    padding-bottom: 5px;
+
   }
   @include for-desktop {
+      width: 530px;
   }
 }
 

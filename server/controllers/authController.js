@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 module.exports = {
     register: async (req, res) => {
         const {username, email, password} = req.body,
-              img = `https://source.unsplash.com/collection/429524/300x300`;
+              img = `https://source.unsplash.com/collection/9588693/300x300`;
               db = req.app.get('db'),
               {session} = req;
 

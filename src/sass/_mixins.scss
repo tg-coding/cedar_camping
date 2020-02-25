@@ -132,7 +132,8 @@
 @mixin input-heading-text{
   font-family: $sub-heading-font;
   color: $input-text-color;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   @include for-phone {
       font-size: 13px;
   }

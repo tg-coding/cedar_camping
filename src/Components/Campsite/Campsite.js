@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import axios from "axios";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
-import { store } from 'react-notifications-component';
+import { store } from "react-notifications-component";
 import googleMap from "../../googleMap";
 import "./carousel.scss";
 import "./campsite.scss";
@@ -39,7 +39,8 @@ const Campsite = props => {
           duration: durationInput,
           campsite_price
         })
-        .then(() => {store.addNotification({
+        .then(() => {
+          store.addNotification({
             title: "Success",
             message: "Campsite added to cart",
             type: "success",
@@ -52,22 +53,22 @@ const Campsite = props => {
               showIcon: true
             }
           });
-        }
-        )
-        .catch((err) => {store.addNotification({
-          title: "Error",
-          message: err,
-          type: "danger",
-          insert: "top",
-          container: "top-center",
-          animationIn: ["animated", "fadeIn"],
-          animationOut: ["animated", "fadeOut"],
-          dismiss: {
-            duration: 5000,
-            showIcon: true
-          }
+        })
+        .catch(err => {
+          store.addNotification({
+            title: "Error",
+            message: err,
+            type: "danger",
+            insert: "top",
+            container: "top-center",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+              duration: 5000,
+              showIcon: true
+            }
+          });
         });
-      });;
     } else {
       store.addNotification({
         title: "Login",
@@ -99,7 +100,7 @@ const Campsite = props => {
       <div key={i} className="google-map-campsite-container">
         <Map
           google={props.google}
-          zoom={8}
+          zoom={10}
           style={mapStyles}
           initialCenter={{ lat: campsite_latitude, lng: campsite_longitude }}
         >
@@ -147,88 +148,101 @@ const Campsite = props => {
 
     return (
       <div key={i} className="cs-container">
-        <div className="cs-primary-info-container">
-          <div className="carousel-container">
-            <Carousel>
-              <div className="carousel-hero">
-                <img
-                  className="carousel-hero-img"
-                  src={campsite_primary_img_url}
-                  alt={campsite_name}
-                />
-                <p className="legend">{campsite_primary_img_credit}</p>
+        <div className="cs-major-info">
+          <div className="cs-primary-info-container">
+            <div className="carousel-container">
+              <Carousel>
+                <div className="carousel-hero">
+                  <img
+                    className="carousel-hero-img"
+                    src={campsite_primary_img_url}
+                    alt={campsite_name}
+                  />
+                  <p className="legend">{campsite_primary_img_credit}</p>
+                </div>
+                {null ? null : (
+                  <div className="carousel-hero">
+                    <img src={campsite_img_url} />
+                    <p className="legend">{campsite_img_credit}</p>
+                  </div>
+                )}
+                {null ? null : (
+                  <div className="carousel-hero">
+                    <img src={campsite_img_url_2} />
+                    <p className="legend">{campsite_img_credit_2}</p>
+                  </div>
+                )}
+                {null ? null : (
+                  <div className="carousel-hero">
+                    <img src={campsite_img_url_3} />
+                    <p className="legend">{campsite_img_credit_3}</p>
+                  </div>
+                )}
+              </Carousel>
+            </div>
+            <div className="cs-primary-info-inputs-btn-container">
+              <div className="cs-primary-info">
+                <h5 className="cs-park-name">{park_name}</h5>
+                <h2 className="cs-cg-name">{campground_name}</h2>
+                <h3 className="cs-name">Site: {campsite_name}</h3>
+                <h3 className="cs-type">Type: {campsite_type}</h3>
+                <div className="cs-price-container">
+                  <h5 id="cs-price">${campsite_price} </h5>
+                  per night
+                </div>
+                <hr className="cs-line" id="line1" />
               </div>
-              {null ? null : (
-                <div className="carousel-hero">
-                  <img src={campsite_img_url} />
-                  <p className="legend">{campsite_img_credit}</p>
-                </div>
-              )}
-              {null ? null : (
-                <div className="carousel-hero">
-                  <img src={campsite_img_url_2} />
-                  <p className="legend">{campsite_img_credit_2}</p>
-                </div>
-              )}
-              {null ? null : (
-                <div className="carousel-hero">
-                  <img src={campsite_img_url_3} />
-                  <p className="legend">{campsite_img_credit_3}</p>
-                </div>
-              )}
-            </Carousel>
-          </div>
 
-          <div className="cs-primary-info">
-            <h5 className="cs-park-name">{park_name}</h5>
-            <h2 className="cs-cg-name">{campground_name}</h2>
-            <h3 className="cs-name">Site: {campsite_name}</h3>
-            <h3 className="cs-type">Type: {campsite_type}</h3>
-            <div className="cs-price-container">
-              <h5 id="cs-price">${campsite_price} </h5>
-              per night
+              <div className="cs-input-btn-container">
+                <div className="cs-inputs">
+                  <div className="cs-input-start-date">
+                    Start Date
+                    <br />
+                    <input
+                      className="cs-date-input"
+                      value={startDateInput}
+                      placeholder="YYYY-MM-DD"
+                      type="date"
+                      onChange={e => setStartDateInput(e.target.value)}
+                    />
+                  </div>
+                  <div className="cs-input-duration">
+                    Days
+                    <br />
+                    <input
+                      className="cs-days-input"
+                      value={durationInput}
+                      placeholder="#"
+                      type="number"
+                      min="1"
+                      step="1"
+                      onChange={e => setDurationInput(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="reserve-btn-container">
+                  <button
+                    className="reserve-btn"
+                    onClick={() =>
+                      addToCart(
+                        campsite_id,
+                        startDateInput,
+                        durationInput,
+                        campsite_price
+                      )
+                    }
+                  >
+                    Reserve
+                    <br />
+                    Campground
+                  </button>
+                </div>
+              </div>
             </div>
-            <hr className="cs-line" id="line1" />
           </div>
-          <div className="cs-inputs">
-            <div className="cs-input-start-date">
-              Start Date
-              <input
-                className="cs-date-input"
-                value={startDateInput}
-                placeholder="YYYY-MM-DD"
-                type="date"
-                onChange={e => setStartDateInput(e.target.value)}
-              />
-            </div>
-            <div className="cs-input-duration">
-              Days
-              <input
-                className="cs-days-input"
-                value={durationInput}
-                type="number"
-                min="1"
-                step="1"
-                onChange={e => setDurationInput(e.target.value)}
-              />
-            </div>
-            <button
-              className="reserve-btn"
-              onClick={() =>
-                addToCart(
-                  campsite_id,
-                  startDateInput,
-                  durationInput,
-                  campsite_price
-                )
-              }
-            >
-              Reserve
-              <br />
-              Campground
-            </button>
-            <hr className="cs-line" id="line2" />
-          </div>
+        </div>
+        <hr className="cs-line" id="line2" />
+        <div className="cs-attributes-map-container">
           <div className="cs-attributes-container">
             <div className="cs-attributes-row">
               <div className="cs-coordinate-attribute">
