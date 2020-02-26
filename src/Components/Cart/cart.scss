@@ -161,7 +161,7 @@
     left: 140px;
   }
   @include for-tablet-portrait {
-    width: 220px;
+    width: 210px;
     top: 0;
     left: 190px;
   }
@@ -274,7 +274,7 @@
   @include for-tablet-portrait {
     font-size: 12px;
     top: 0;
-    left: 430px;
+    left: 415px;
   }
   @include for-tablet-landscape {
     font-size: 13px;
@@ -321,7 +321,7 @@
   @include for-tablet-portrait {
     font-size: 12px;
     top: 50px;
-    left: 430px;
+    left: 415px;
   }
   @include for-tablet-landscape {
     font-size: 13px;
@@ -427,18 +427,18 @@
   @include edit-input;
   margin-top: 3px;
   //   padding: 5px 0 5px 15px;
-  //   width: 110px;
+    width: 110px;
 
   @include for-phone {
     // padding: 5px 0 5px 0;
-    // width: 100px;
+    width: 120px;
     height: 25px;
     margin-top: 5px;
-    padding: 0 0 0 10px;
+    padding: 0 0 0 6px;
   }
   @include for-tablet-portrait {
     padding: 5px 0 5px 6px;
-    width: 105px;
+    width: 120px;
   }
   @include for-tablet-landscape {
   }
@@ -448,9 +448,9 @@
 
 .cart-duration-input {
   @include edit-input;
-  margin-top: 3px;
-  padding: 5px 0 5px 15px;
-  width: 30px;
+  margin-top: 5px;
+  padding: 5px 0 5px 6px;
+  width: 40px;
 }
 
 .cart-duration-input::placeholder {
@@ -617,6 +617,9 @@
 button.StripeCheckout span {
   background-image: none;
 }
+
+
+
 
 // @include for-phone{
 

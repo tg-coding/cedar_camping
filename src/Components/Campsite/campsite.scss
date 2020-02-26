@@ -34,7 +34,7 @@
   @include for-tablet-portrait {
     width: 248px;
     height: 230px;
-}
+  }
   @include for-tablet-landscape {
     width: 430px;
   }
@@ -224,7 +224,7 @@
     // left: 0;
     // display: flex;
     // justify-content: space-between;
-}
+  }
   @include for-tablet-landscape {
     width: 430px;
     margin: 90px auto;
@@ -245,14 +245,16 @@
     margin: 0 auto;
   }
   @include for-tablet-portrait {
-      width: 248px;
-      justify-content: flex-end;
+    width: 248px;
+    justify-content: flex-end;
   }
   @include for-tablet-landscape {
   }
   @include for-desktop {
   }
 }
+
+
 
 .cs-input-start-date {
   @include input-heading-text;
@@ -324,9 +326,9 @@
     margin: 15px auto;
   }
   @include for-tablet-portrait {
-      width: 248px;
-      justify-content: flex-end;
-      margin-top: 10px;
+    width: 248px;
+    justify-content: flex-end;
+    margin-top: 10px;
     // margin: 0px;
   }
   @include for-tablet-landscape {
@@ -459,7 +461,6 @@
   }
   @include for-tablet-landscape {
     bottom: -60px;
-
   }
   @include for-desktop {
   }
@@ -472,7 +473,7 @@
   @include for-tablet-portrait {
     width: 540px;
     margin-top: 160px;
-}
+  }
   @include for-tablet-landscape {
     width: 840px;
     margin-top: 60px;
@@ -510,7 +511,6 @@
     width: 540px;
     margin: 0 auto;
     overflow: hidden;
-
   }
   @include for-tablet-landscape {
     width: 360px;

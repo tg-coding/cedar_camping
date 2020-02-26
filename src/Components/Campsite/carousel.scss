@@ -56,14 +56,14 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.carousel img {
-  //   width: 80px;
-  background-size: cover;
-  //   height: 150px;
-  object-fit: cover;
-  display: inline-block;
-  pointer-events: none;
-}
+// .carousel img {
+//   //   width: 80px;
+//   // background-size: cover;
+//   //   height: 150px;
+//   // object-fit: cover;
+//   // display: inline-block;
+//   // pointer-events: none;
+// }
 .carousel .carousel {
   position: relative;
 }
@@ -145,6 +145,7 @@ ul.thumbs.animated {
   display: -moz-flex;
   display: -webkit-flex;
   display: flex;
+  
 }
 .carousel .slider-wrapper.axis-horizontal .slider .slide {
   flex-direction: column;
@@ -298,6 +299,7 @@ ul.thumbs.animated {
 .carousel .slide img {
   object-fit: cover;
   object-position: center;
+  height: 100%;
 }
 
 .carousel .slider-wrapper {
@@ -326,9 +328,35 @@ ul.thumbs.animated {
   }
 }
 
+.carousel-hero{
+  object-fit: cover;
+  object-position: center;
+  vertical-align: middle;
+  //   width: 100%;
+  //   height: 100%;
+
+  @include for-phone {
+    width: 335px;
+    height: 285px;
+  }
+  @include for-tablet-portrait {
+    width: 270px;
+    height: 230px;
+  }
+  @include for-tablet-landscape {
+    width: 390px;
+    height: 330px;
+  }
+  @include for-desktop {
+    width: 490px;
+    height: 400px;
+  }
+}
+
 .carousel-hero-img {
   object-fit: cover;
   object-position: center;
+  vertical-align: middle;
   //   width: 100%;
   //   height: 100%;
 
@@ -368,6 +396,7 @@ ul.thumbs.animated {
 .carousel .thumb:focus {
   border: none;
   outline: none;
+  box-shadow: none;
 }
 .carousel .thumb.selected,
 .carousel .thumb:hover {
@@ -377,10 +406,15 @@ ul.thumbs.animated {
   vertical-align: middle;
   height: 75px;
   width: 85px;
+
 }
 
 .carousel .thumb {
-  border: none;
+  // border: 3px white solid;
+  outline: none;
+  background-color: white;
+  // border-radius: 5px;
+  box-shadow: none;
 
   @include for-phone {
     display: none;
