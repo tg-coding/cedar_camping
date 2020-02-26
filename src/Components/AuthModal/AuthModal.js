@@ -60,7 +60,10 @@ const AuthModal = props => {
         email: emailInput,
         password: passInput
       })
-      .then(res => props.getUser(res.data))
+      .then(res => {
+        props.getUser(res.data);
+        props.toggleFn();
+      })
       .catch((err) => {store.addNotification({
         title: "Error",
         message: err.response.request.response,

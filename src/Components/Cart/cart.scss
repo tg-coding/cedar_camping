@@ -430,8 +430,11 @@
   //   width: 110px;
 
   @include for-phone {
-    padding: 5px 0 5px 15px;
-    width: 100px;
+    // padding: 5px 0 5px 0;
+    // width: 100px;
+    height: 25px;
+    margin-top: 5px;
+    padding: 0 0 0 10px;
   }
   @include for-tablet-portrait {
     padding: 5px 0 5px 6px;

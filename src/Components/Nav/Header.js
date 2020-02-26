@@ -36,6 +36,7 @@ class Header extends Component{
         axios.post('/auth/logout');
         this.props.getUser({})
         this.setState({showDropdown: !this.state.showDropdown})
+        // (() => this.props.history.push('/'))
     }
 
 

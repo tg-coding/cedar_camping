@@ -13,6 +13,9 @@
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  @include for-tablet-portrait {
+    width: 540px;
+  }
   @include for-tablet-landscape {
     width: 840px;
     height: 420px;
@@ -26,6 +29,12 @@
 .cs-primary-info-inputs-btn-container {
   display: flex;
   flex-direction: column;
+  @include for-phone {
+  }
+  @include for-tablet-portrait {
+    width: 248px;
+    height: 230px;
+}
   @include for-tablet-landscape {
     width: 430px;
   }
@@ -38,6 +47,7 @@
   padding-top: 30px;
 
   @include for-phone {
+    margin: 0 auto;
   }
   @include for-tablet-portrait {
     display: flex;
@@ -69,16 +79,17 @@
   }
   @include for-tablet-portrait {
     width: 248px;
+    height: 230px;
     position: relative;
   }
   @include for-tablet-landscape {
     width: 430px;
+    height: auto;
     position: relative;
   }
   @include for-desktop {
     width: 525px;
     position: relative;
-
   }
 }
 
@@ -177,12 +188,11 @@
   }
   @include for-tablet-portrait {
     position: absolute;
-    bottom: 15px;
+    bottom: -30px;
   }
   @include for-tablet-landscape {
     position: relative;
-
-    margin-top: 25px;
+    margin-top: -25px;
   }
   @include for-desktop {
   }
@@ -209,21 +219,21 @@
   }
   @include for-tablet-portrait {
     width: 540px;
-    margin: 20px auto;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-  }
+    margin: 60px auto;
+    // position: absolute;
+    // left: 0;
+    // display: flex;
+    // justify-content: space-between;
+}
   @include for-tablet-landscape {
     width: 430px;
-    margin: 20px auto;
+    margin: 90px auto;
     position: relative;
     display: flex;
     justify-content: space-between;
   }
   @include for-desktop {
     width: 525px;
-
   }
 }
 
@@ -232,9 +242,11 @@
   text-align: left;
   @include for-phone {
     width: 335px;
-    margin: 15px auto;
+    margin: 0 auto;
   }
   @include for-tablet-portrait {
+      width: 248px;
+      justify-content: flex-end;
   }
   @include for-tablet-landscape {
   }
@@ -262,7 +274,7 @@
   @include for-phone {
   }
   @include for-tablet-portrait {
-    width: 170px;
+    width: 130px;
     height: 40px;
   }
   @include for-tablet-landscape {
@@ -295,7 +307,7 @@
   @include for-phone {
   }
   @include for-tablet-portrait {
-    width: 80px;
+    width: 50px;
     height: 40px;
   }
   @include for-tablet-landscape {
@@ -312,7 +324,10 @@
     margin: 15px auto;
   }
   @include for-tablet-portrait {
-    margin: 0px;
+      width: 248px;
+      justify-content: flex-end;
+      margin-top: 10px;
+    // margin: 0px;
   }
   @include for-tablet-landscape {
   }
@@ -326,16 +341,12 @@
     margin-bottom: 10px;
   }
   @include for-tablet-portrait {
-    position: absolute;
-    bottom: 0;
-    right: 0;
   }
   @include for-tablet-landscape {
     font-size: 12px;
-
   }
   @include for-desktop {
-      font-size: 12px;
+    font-size: 12px;
   }
 }
 
@@ -352,7 +363,6 @@
     margin: 10px auto 0 auto;
   }
   @include for-desktop {
-
     width: 1040px;
     margin: 10px auto 0 auto;
   }
@@ -375,7 +385,6 @@
   }
   @include for-desktop {
     width: 480px;
-
   }
 }
 
@@ -446,9 +455,11 @@
   @include for-tablet-portrait {
     width: 100%;
     position: absolute;
-    bottom: 0;
+    bottom: -45px;
   }
   @include for-tablet-landscape {
+    bottom: -60px;
+
   }
   @include for-desktop {
   }
@@ -460,7 +471,8 @@
   }
   @include for-tablet-portrait {
     width: 540px;
-  }
+    margin-top: 160px;
+}
   @include for-tablet-landscape {
     width: 840px;
     margin-top: 60px;
@@ -497,16 +509,17 @@
   @include for-tablet-portrait {
     width: 540px;
     margin: 0 auto;
+    overflow: hidden;
+
   }
   @include for-tablet-landscape {
     width: 360px;
     height: 340px;
     margin: 0;
     padding-bottom: 5px;
-
   }
   @include for-desktop {
-      width: 530px;
+    width: 530px;
   }
 }
 
