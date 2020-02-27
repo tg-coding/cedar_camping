@@ -45,7 +45,7 @@
     font-family: montserrat, sans-serif;
     font-weight: 600;
     font-style: normal;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.03em;
     height: 30px;
     width: 415px;
     max-width: 70%;
@@ -59,7 +59,7 @@
 
   .search-input::placeholder {
     color: #7676767a;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
   }
 }
 
@@ -69,8 +69,8 @@
   display: flex;
   flex-wrap: wrap;
   // align-items: flex-start;
-  justify-content: space-evenly;
-  margin: 10px 0 30px 0;
+  // justify-content: space-evenly;
+  // margin: 10px 0 30px 0;
 
   @include for-phone {
     padding: 0 10px;
@@ -89,11 +89,11 @@
     // padding: 0  0;
 
 
-    // width: 1050px;
-    // justify-content: space-evenly;
+    width: 1065px;
+    // justify-content: space-between;
     // overflow: visible;
-    // margin: 0px 0px 0px 0px;
-    // padding: 0;
+    margin: 30px auto 30px auto !important;
+    padding: 0;
   }
 }
 

@@ -91,7 +91,8 @@ const Campsite = props => {
     width: "100%",
     maxWidth: "1100px",
     height: "300px",
-    overflow: "hidden"
+    overflow: "hidden",
+    marginBottom: "30px",
   };
 
   const campsiteMap = campsite.map((campsite, i) => {

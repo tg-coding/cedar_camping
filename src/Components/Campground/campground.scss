@@ -101,9 +101,12 @@
 }
 
 .google-map-container {
+  @include product-backgrounds;
+  box-sizing: border-box;
+  border: 15px white solid;
   height: 300px;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1045px;
   margin: 30px auto;
   overflow: hidden;
   position: relative;

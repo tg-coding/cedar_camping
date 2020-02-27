@@ -7,6 +7,8 @@
   margin: 0 auto;
   background-color: white;
   position: relative;
+  // padding: 30px auto;
+  // margin-bottom: 30px;
 }
 
 .cs-major-info {
@@ -354,8 +356,10 @@
 
 .cs-attributes-map-container {
   @include for-phone {
+    padding-bottom: 30px;
   }
   @include for-tablet-portrait {
+    padding-bottom: 30px;
   }
   @include for-tablet-landscape {
     display: flex;
@@ -496,30 +500,33 @@
 }
 
 .cs-map-container {
-  padding: 25px 0 30px 0;
+  @include product-backgrounds;
+  box-sizing: border-box;
+  border: 15px white solid;
+  padding: 0;
   height: 300px;
-  // width: 100%;
-  max-width: 1100px;
   overflow: hidden;
   position: relative;
 
   @include for-phone {
     width: 335px;
-    margin: 0 auto;
+    margin: 20px auto 0 auto;
   }
   @include for-tablet-portrait {
     width: 540px;
-    margin: 0 auto;
+    margin: 20px auto 0 auto;
     overflow: hidden;
   }
   @include for-tablet-landscape {
     width: 360px;
     height: 340px;
     margin: 0;
-    padding-bottom: 5px;
+    overflow: hidden;
+    // padding-bottom: 5px;
   }
   @include for-desktop {
     width: 530px;
+    margin-top: 20px;
   }
 }
 
