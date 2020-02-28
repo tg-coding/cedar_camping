@@ -104,7 +104,7 @@ ul.thumbs.animated {
   list-style: none;
   white-space: nowrap;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: center;
   @include for-phone {
   }
@@ -127,7 +127,7 @@ ul.thumbs.animated {
   margin-right: 14px;
   white-space: nowrap;
   overflow: hidden;
-  justify-content: space-between;
+  // justify-content: space-between;
 
   //   border: 3px solid #fff;
   //   padding: 2px;
@@ -382,6 +382,7 @@ ul.thumbs.animated {
   position: relative;
   margin: 0;
   overflow: hidden;
+  
 }
 
 .carousel.carousel-slider .control-arrow {
@@ -401,18 +402,21 @@ ul.thumbs.animated {
 .carousel .thumb.selected,
 .carousel .thumb:hover {
   border: none;
+  outline: none;
+  box-shadow: none;
 }
 .carousel .thumb img {
   vertical-align: middle;
   height: 75px;
   width: 85px;
+  
 
 }
 
 .carousel .thumb {
   // border: 3px white solid;
   outline: none;
-  background-color: white;
+  border: none;
   // border-radius: 5px;
   box-shadow: none;
 

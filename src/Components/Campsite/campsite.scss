@@ -220,7 +220,7 @@
   @include for-phone {
   }
   @include for-tablet-portrait {
-    width: 540px;
+    width: 248px;
     margin: 60px auto;
     // position: absolute;
     // left: 0;
@@ -513,7 +513,7 @@
     margin: 20px auto 0 auto;
   }
   @include for-tablet-portrait {
-    width: 540px;
+    width: 550px;
     margin: 20px auto 0 auto;
     overflow: hidden;
   }

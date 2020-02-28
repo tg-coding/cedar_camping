@@ -76,7 +76,7 @@
     padding: 0 10px;
   }
   @include for-tablet-portrait {
-    padding: 0 30px;
+    padding: 30px 30px;
   }
   @include for-tablet-landscape {
     padding: 0 50px;

@@ -110,6 +110,23 @@
   margin: 30px auto;
   overflow: hidden;
   position: relative;
+  @include for-phone {
+    width: 335px;
+  }
+  @include for-tablet-portrait {
+    width: 510px;
+  }
+  @include for-tablet-landscape {
+    width: 860px;
+  }
+  @include for-desktop {
+    width: 1075px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0 10px;
+  }
 }
 
 

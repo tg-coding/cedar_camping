@@ -92,7 +92,7 @@ const Campsite = props => {
     maxWidth: "1100px",
     height: "300px",
     overflow: "hidden",
-    marginBottom: "30px",
+    marginBottom: "30px"
   };
 
   const campsiteMap = campsite.map((campsite, i) => {
@@ -113,14 +113,107 @@ const Campsite = props => {
     );
   });
 
+  const slides  = campsite.map((campsite, i) =>  {
+    const {
+      campsite_name,
+      campsite_primary_img_url,
+      campsite_primary_img_credit,
+      campsite_img_url,
+      campsite_img_credit,
+      campsite_img_url_2,
+      campsite_img_credit_2,
+      campsite_img_url_3,
+      campsite_img_credit_3
+    } = campsite;
+
+    if (campsite_img_url_3) {
+      return (
+        <Carousel>
+          <div className="carousel-hero">
+            <img
+              className="carousel-hero-img"
+              src={campsite_primary_img_url}
+              alt={campsite_name}
+            />
+            <p className="legend">{campsite_primary_img_credit}</p>
+          </div>
+          <div className="carousel-hero">
+            <img src={campsite_img_url} />
+            <p className="legend">{campsite_img_credit}</p>
+          </div>
+
+          <div className="carousel-hero">
+            <img src={campsite_img_url_2} />
+            <p className="legend">{campsite_img_credit_2}</p>
+          </div>
+
+          <div className="carousel-hero">
+            <img src={campsite_img_url_3} />
+            <p className="legend">{campsite_img_credit_3}</p>
+          </div>
+        </Carousel>
+      );
+    } else if (campsite_img_url_2) {
+      return (
+        <Carousel>
+          <div className="carousel-hero">
+            <img
+              className="carousel-hero-img"
+              src={campsite_primary_img_url}
+              alt={campsite_name}
+            />
+            <p className="legend">{campsite_primary_img_credit}</p>
+          </div>
+          <div className="carousel-hero">
+            <img src={campsite_img_url} />
+            <p className="legend">{campsite_img_credit}</p>
+          </div>
+
+          <div className="carousel-hero">
+            <img src={campsite_img_url_2} />
+            <p className="legend">{campsite_img_credit_2}</p>
+          </div>
+        </Carousel>
+      );
+    } else if (campsite_img_url) {
+      return (
+        <Carousel>
+          <div className="carousel-hero">
+            <img
+              className="carousel-hero-img"
+              src={campsite_primary_img_url}
+              alt={campsite_name}
+            />
+            <p className="legend">{campsite_primary_img_credit}</p>
+          </div>
+          <div className="carousel-hero">
+            <img src={campsite_img_url} />
+            <p className="legend">{campsite_img_credit}</p>
+          </div>
+        </Carousel>
+      );
+    } else {
+      return (
+        <Carousel>
+          <div className="carousel-hero">
+            <img
+              className="carousel-hero-img"
+              src={campsite_primary_img_url}
+              alt={campsite_name}
+            />
+            <p className="legend">{campsite_primary_img_credit}</p>
+          </div>
+        </Carousel>
+      );
+    }
+  });
+
   const mappedCampsite = campsite.map((campsite, i) => {
     const {
       campsite_id,
       campsite_name,
       campground_name,
       park_name,
-      campsite_primary_img_url,
-      campsite_primary_img_credit,
       campsite_type,
       campsite_price,
       campsite_latitude,
@@ -138,48 +231,16 @@ const Campsite = props => {
       showers,
       toilets,
       site_width,
-      site_length,
-      campsite_img_url,
-      campsite_img_credit,
-      campsite_img_url_2,
-      campsite_img_credit_2,
-      campsite_img_url_3,
-      campsite_img_credit_3
+      site_length
     } = campsite;
+
 
     return (
       <div key={i} className="cs-container">
         <div className="cs-major-info">
           <div className="cs-primary-info-container">
             <div className="carousel-container">
-              <Carousel>
-                <div className="carousel-hero">
-                  <img
-                    className="carousel-hero-img"
-                    src={campsite_primary_img_url}
-                    alt={campsite_name}
-                  />
-                  <p className="legend">{campsite_primary_img_credit}</p>
-                </div>
-                {null ? null : (
-                  <div className="carousel-hero">
-                    <img src={campsite_img_url} />
-                    <p className="legend">{campsite_img_credit}</p>
-                  </div>
-                )}
-                {null ? null : (
-                  <div className="carousel-hero">
-                    <img src={campsite_img_url_2} />
-                    <p className="legend">{campsite_img_credit_2}</p>
-                  </div>
-                )}
-                {null ? null : (
-                  <div className="carousel-hero">
-                    <img src={campsite_img_url_3} />
-                    <p className="legend">{campsite_img_credit_3}</p>
-                  </div>
-                )}
-              </Carousel>
+            {slides}
             </div>
             <div className="cs-primary-info-inputs-btn-container">
               <div className="cs-primary-info">
@@ -350,6 +411,7 @@ const Campsite = props => {
 
   return <div>{mappedCampsite}</div>;
 };
+
 
 function mapStateToProps(state) {
   return { user: state.userReducer.user };
