@@ -17,6 +17,7 @@
   margin: 0 auto;
   @include for-tablet-portrait {
     width: 540px;
+    height: 230px;
   }
   @include for-tablet-landscape {
     width: 840px;
@@ -39,6 +40,8 @@
   }
   @include for-tablet-landscape {
     width: 430px;
+    height: 330px;
+    position: relative;
   }
   @include for-desktop {
     width: 525px;
@@ -46,7 +49,7 @@
 }
 
 .cs-primary-info-container {
-  padding-top: 30px;
+  padding-top: 40px;
 
   @include for-phone {
     margin: 0 auto;
@@ -81,7 +84,7 @@
   }
   @include for-tablet-portrait {
     width: 248px;
-    height: 230px;
+    height: 530px;
     position: relative;
   }
   @include for-tablet-landscape {
@@ -190,11 +193,12 @@
   }
   @include for-tablet-portrait {
     position: absolute;
-    bottom: -30px;
+    bottom: -70px;
   }
   @include for-tablet-landscape {
     position: relative;
-    margin-top: -25px;
+    // margin-top: -25px;
+    bottom: 10px;
   }
   @include for-desktop {
   }
@@ -220,22 +224,25 @@
   @include for-phone {
   }
   @include for-tablet-portrait {
-    width: 248px;
-    margin: 60px auto;
+    width: 540px;
+    margin: 100px auto 60px -292px;
     // position: absolute;
     // left: 0;
-    // display: flex;
-    // justify-content: space-between;
-  }
-  @include for-tablet-landscape {
-    width: 430px;
-    margin: 90px auto;
-    position: relative;
     display: flex;
     justify-content: space-between;
   }
+  @include for-tablet-landscape {
+    width: 430px;
+    margin: 0 auto 0 auto;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    bottom: 0;
+  }
   @include for-desktop {
     width: 525px;
+    margin-top: 75px;
+    position: relative;
   }
 }
 
@@ -248,7 +255,7 @@
   }
   @include for-tablet-portrait {
     width: 248px;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
   @include for-tablet-landscape {
   }
@@ -397,14 +404,6 @@
 .cs-attributes-row {
   display: flex;
   justify-content: space-evenly;
-  @include for-phone {
-  }
-  @include for-tablet-portrait {
-  }
-  @include for-tablet-landscape {
-  }
-  @include for-desktop {
-  }
 }
 
 .cs-coordinate-attribute {
@@ -443,15 +442,6 @@
 
 .cs-line {
   @include divider-lines;
-
-  @include for-phone {
-  }
-  @include for-tablet-portrait {
-  }
-  @include for-tablet-landscape {
-  }
-  @include for-desktop {
-  }
 }
 
 #line1 {
@@ -461,10 +451,11 @@
   @include for-tablet-portrait {
     width: 100%;
     position: absolute;
-    bottom: -45px;
+    bottom: -85px;
   }
   @include for-tablet-landscape {
-    bottom: -60px;
+    position: absolute;
+    bottom: -40px;
   }
   @include for-desktop {
   }
@@ -476,7 +467,7 @@
   }
   @include for-tablet-portrait {
     width: 540px;
-    margin-top: 160px;
+    margin-top: 140px;
   }
   @include for-tablet-landscape {
     width: 840px;
@@ -519,8 +510,8 @@
   }
   @include for-tablet-landscape {
     width: 360px;
-    height: 340px;
-    margin: 0;
+    height: 300px;
+    margin: 20px 0;
     overflow: hidden;
     // padding-bottom: 5px;
   }
