@@ -274,7 +274,7 @@
   @include for-tablet-portrait {
     font-size: 12px;
     top: 0;
-    left: 415px;
+    left: 410px;
   }
   @include for-tablet-landscape {
     font-size: 13px;
@@ -320,16 +320,16 @@
   }
   @include for-tablet-portrait {
     font-size: 12px;
-    top: 50px;
-    left: 415px;
+    top: 55px;
+    left: 410px;
   }
   @include for-tablet-landscape {
-    font-size: 13px;
+    font-size: 12px;
     top: 0;
-    left: 650px;
+    left: 670px;
   }
   @include for-desktop {
-    font-size: 13px;
+    font-size: 12px;
     top: 0;
     left: 800px;}
 }
@@ -403,6 +403,7 @@
   background-color: $dark-blue-color;
   color: white;
   font-family: montserrat, sans-serif;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -420,6 +421,7 @@
   @include for-tablet-landscape {
   }
   @include for-desktop {
+    
   }
 }
 
@@ -435,22 +437,34 @@
     height: 25px;
     margin-top: 5px;
     padding: 0 0 0 6px;
+    font-size: 12px;
   }
   @include for-tablet-portrait {
     padding: 5px 0 5px 6px;
-    width: 120px;
+    width: 125px;
+    font-size: 12px;
   }
   @include for-tablet-landscape {
+    // padding: 5px 0 5px 6px;
+    height: 17px;
+    width: 145px;
   }
   @include for-desktop {
+    width: 145px;
   }
 }
+
+// .cart-date-input::placeholder{
+//   font-size: 10px;
+// }
 
 .cart-duration-input {
   @include edit-input;
   margin-top: 5px;
   padding: 5px 0 5px 6px;
   width: 40px;
+  font-size: 12px;
+
 }
 
 .cart-duration-input::placeholder {
@@ -466,6 +480,7 @@
   background-color: $green-color;
   color: white;
   font-family: montserrat, sans-serif;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -475,14 +490,18 @@
   @include for-phone {
     bottom: 20px;
     right: 0;
+    font-size: 11px;
   }
   @include for-tablet-portrait {
     bottom: 20px;
     right: 0;
+    font-size: 11px;
   }
   @include for-tablet-landscape {
+    font-size: 12px;
   }
   @include for-desktop {
+    font-size: 12px;
   }
 }
 
@@ -502,15 +521,21 @@
   @include for-phone {
     bottom: 20px;
     right: 80px;
+    font-size: 11px;
   }
   @include for-tablet-portrait {
     bottom: 20px;
     right: 80px;
+    font-size: 11px;
   }
   @include for-tablet-landscape {
-  }
+    margin-right: 10px;
+    font-size: 12px;
+}
   @include for-desktop {
-  }
+    margin-right: 10px;
+    font-size: 12px;
+}
 }
 
 .cart-remove-btn {
