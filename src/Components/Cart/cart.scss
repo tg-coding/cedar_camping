@@ -23,20 +23,18 @@
 
 .empty-cart-header-text {
   color: $dark-blue-color;
-  padding-top: 50px;
+  padding-top: 150px;
   margin: 0 auto;
 
   @include for-phone {
     line-height: 40px;
     width: 250px;
-    padding-top: 50px;
   }
   @include for-tablet-portrait {
-  }
+}
   @include for-tablet-landscape {
   }
   @include for-desktop {
-    padding-top: 150px;
   }
 }
 

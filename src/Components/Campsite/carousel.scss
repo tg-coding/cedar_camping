@@ -47,6 +47,14 @@
   border-left: 8px solid #fff;
 }
 
+.thumbs-wrapper .control-next.control-arrow {
+  display: none;
+}
+
+.thumbs-wrapper .control-prev.control-arrow {
+  display: none;
+}
+
 .carousel {
   position: relative;
 }
@@ -145,7 +153,6 @@ ul.thumbs.animated {
   display: -moz-flex;
   display: -webkit-flex;
   display: flex;
-  
 }
 .carousel .slider-wrapper.axis-horizontal .slider .slide {
   flex-direction: column;
@@ -205,15 +212,19 @@ ul.thumbs.animated {
   position: absolute;
   bottom: 0px;
   right: 20px;
+  left: 20px;
+
   // margin-left: -45%;
   //   width: 90%;
   //   border-radius: 10px;
-  //   background: #000;
+  background: rgba(0, 0, 0, 0.466);
   color: #fff;
-  //   padding: 10px;
+  padding: 10px;
   font-size: 12px;
   text-align: right;
-  //   opacity: 0.25;
+  // opacity: 0.25;
+  backdrop-filter: blur(0.5px);
+
   font-family: $info-font;
   font-weight: 600;
   -webkit-transition: opacity 0.35s ease-in-out;
@@ -328,7 +339,7 @@ ul.thumbs.animated {
   }
 }
 
-.carousel-hero{
+.carousel-hero {
   object-fit: cover;
   object-position: center;
   vertical-align: middle;
@@ -382,12 +393,11 @@ ul.thumbs.animated {
   position: relative;
   margin: 0;
   overflow: hidden;
-  
 }
 
 .carousel.carousel-slider .control-arrow {
   top: 0;
-  color: #fff;
+  color: rgb(255, 255, 255);
   font-size: 26px;
   bottom: 0;
   margin-top: 0;
@@ -409,8 +419,6 @@ ul.thumbs.animated {
   vertical-align: middle;
   height: 75px;
   width: 85px;
-  
-
 }
 
 .carousel .thumb {

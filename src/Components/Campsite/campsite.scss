@@ -193,7 +193,7 @@
   }
   @include for-tablet-portrait {
     position: absolute;
-    bottom: -70px;
+    bottom: 20px;
   }
   @include for-tablet-landscape {
     position: relative;
@@ -225,8 +225,8 @@
   }
   @include for-tablet-portrait {
     width: 540px;
-    margin: 100px auto 60px -292px;
-    // position: absolute;
+    margin: 245px auto 60px -292px;
+    position: absolute;
     // left: 0;
     display: flex;
     justify-content: space-between;
@@ -451,7 +451,7 @@
   @include for-tablet-portrait {
     width: 100%;
     position: absolute;
-    bottom: -85px;
+    bottom: 0;
   }
   @include for-tablet-landscape {
     position: absolute;
