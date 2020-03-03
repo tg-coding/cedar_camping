@@ -23,20 +23,18 @@ app.use(
 );
 
 massive(CONNECTION_STRING).then(db => {
-    app.set("db", db);
-    console.log("db connected");
-    app.listen(SERVER_PORT, () =>
-      console.log(`Server running on ${SERVER_PORT}`)
-    );
-  });
-  
-  app.use(express.static(__dirname + "/../build"));
-  
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../build/index.html"));
-  });
+  app.set("db", db);
+  console.log("db connected");
+  app.listen(SERVER_PORT, () =>
+    console.log(`Server running on ${SERVER_PORT}`)
+  );
+});
 
+app.use(express.static(__dirname + "/../build"));
 
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../build/index.html"));
+// });
 
 //auth endpoints
 app.post("/auth/login", authCtrl.login);
@@ -62,5 +60,3 @@ app.delete("/api/cart/:id", cartCtrl.removeFromCart);
 
 // stripe endpoints
 app.post("/api/payment", stripeCtrl.payment);
-
-
